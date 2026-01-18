@@ -1300,6 +1300,7 @@ def react_to_news(request, news_id):
 
 
 def authors_list(request):
+    categories = AuthorCategory.objects.prefetch_related("authors").all()
     categories = AuthorCategory.objects.prefetch_related(
         "roles__authors"
     )

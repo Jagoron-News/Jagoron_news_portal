@@ -1,0 +1,117 @@
+{% comment %}
+Breadcrumb Navigation Component
+{% endcomment %}
+
+{% if breadcrumb_items %}
+<nav aria-label="Breadcrumb" class="breadcrumb-nav">
+    <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+        {% for item in breadcrumb_items %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            {% if item.is_active %}
+                <span class="breadcrumb-current" itemprop="name">{{ item.title }}</span>
+            {% else %}
+                <a href="{{ item.url }}" class="breadcrumb-link" itemprop="item">
+                    <span itemprop="name">{{ item.title }}</span>
+                </a>
+            {% endif %}
+            {% if not forloop.last %}
+                <span class="breadcrumb-separator">
+                    <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L1 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            {% endif %}
+            <meta itemprop="position" content="{{ forloop.counter }}" />
+        </li>
+        {% endfor %}
+    </ol>
+</nav>
+
+<style>
+.breadcrumb-nav {
+    margin: 20px 0 15px 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.breadcrumb-link {
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.breadcrumb-link:hover {
+    color: #c51212;
+    background-color: #f5f5f5;
+    text-decoration: none;
+}
+
+.breadcrumb-separator {
+    margin: 0 4px;
+    color: #999;
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.breadcrumb-separator svg {
+    width: 6px;
+    height: 10px;
+}
+
+.breadcrumb-current {
+    color: #c51212;
+    font-weight: 600;
+    padding: 4px 8px;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .breadcrumb-nav {
+        margin: 15px 0 10px 0;
+        padding: 10px 0;
+    }
+    
+    .breadcrumb-list {
+        font-size: 13px;
+    }
+    
+    .breadcrumb-link,
+    .breadcrumb-current {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+    
+    .breadcrumb-separator {
+        margin: 0 3px;
+    }
+    
+    .breadcrumb-separator svg {
+        width: 5px;
+        height: 8px;
+    }
+}
+</style>
+{% endif %}

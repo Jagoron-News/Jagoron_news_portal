@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% for sitemap in sitemaps %}
+    <sitemap>
+        <loc>{{ sitemap.location }}</loc>
+        {% if sitemap.lastmod %}<lastmod>{{ sitemap.lastmod|date:"Y-m-d\TH:i:s+06:00" }}</lastmod>{% endif %}
+    </sitemap>
+{% endfor %}
+</sitemapindex>
+

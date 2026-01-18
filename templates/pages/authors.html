@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Authors{% endblock %}
+
+{% block body %}
+<section style="padding:60px 0;">
+  <div class="container">
+
+    <h1 style="text-align:center;margin-bottom:50px;">
+      Our Authors
+    </h1>
+
+    {% for category in categories %}
+    <div style="margin-bottom:60px;">
+
+      <!-- ✅ CENTERED CATEGORY TITLE -->
+      <div style="display:flex;justify-content:center;margin-bottom:30px;">
+        <h2 style="border-left:5px solid #2563eb;padding-left:15px;margin:0;">
+          {{ category.title }}
+        </h2>
+      </div>
+
+      <!-- ✅ CENTERED AUTHORS GRID -->
+      <div style="
+          display:grid;
+          grid-template-columns:repeat(auto-fit,minmax(180px,200px));
+          gap:30px;
+          justify-content:center;
+          margin:0 auto;
+          max-width:1100px;
+      ">
+        {% for author in category.authors.all %}
+          {% if author.is_active %}
+          <a href="{% url 'author_detail' author.slug %}"
+             style="text-decoration:none;color:inherit;">
+            <div style="text-align:center;">
+              <img src="{{ author.image.url }}"
+                   alt="{{ author.name }}"
+                   style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+              <h3 style="margin-top:10px;">{{ author.name }}</h3>
+
+                       <!-- ✅ ROLE BELOW NAME (OPTIONAL) -->
+                       {% if author.role %}
+                       <p style="
+                         margin-top:4px;
+                         font-size:14px;
+                         font-weight:500;
+                         color:#555;
+                       ">
+                         {{ author.role.title }}
+                       </p>
+                       {% endif %}
+            </div>
+          </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+{% endblock body %}

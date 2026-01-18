@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{% for item_data in items %}
+    <url>
+        <loc>{{ item_data.location|escape }}</loc>
+        <news:news>
+            <news:publication>
+                <news:name>{{ publication_name|escape }}</news:name>
+                <news:language>{{ publication_language }}</news:language>
+            </news:publication>
+            {% if item_data.publication_date %}<news:publication_date>{{ item_data.publication_date }}</news:publication_date>{% endif %}
+            {% if item_data.title %}<news:title>{{ item_data.title|escape }}</news:title>{% endif %}
+            {% if item_data.keywords %}<news:keywords>{{ item_data.keywords|escape }}</news:keywords>{% endif %}
+        </news:news>
+        {% if item_data.image_url %}
+        <image:image>
+            <image:loc>{{ item_data.image_url|escape }}</image:loc>
+            {% if item_data.image_caption %}<image:caption>{{ item_data.image_caption|escape }}</image:caption>{% endif %}
+        </image:image>
+        {% endif %}
+    </url>
+{% endfor %}
+</urlset>
+

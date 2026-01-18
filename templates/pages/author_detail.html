@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ author.name }}{% endblock %}
+
+{% block body %}
+<section style="padding:60px 0;">
+  <div class="container" style="max-width:800px;margin:auto;text-align:center;">
+
+    <img src="{{ author.image.url }}"
+         alt="{{ author.name }}"
+         style="width:160px;height:160px;border-radius:50%;object-fit:cover;">
+
+    <h1 style="margin-top:20px;">{{ author.name }}</h1>
+
+    <!-- ✅ OPTIONAL ROLE -->
+    {% if author.role %}
+    <p style="font-weight:600;margin-top:8px;color:#374151;">
+      {{ author.role.title }}
+    </p>
+    {% endif %}
+
+    <p style="font-weight:bold;color:#2563eb;">
+      {{ author.category.title }}
+    </p>
+
+    <p style="margin-top:30px;font-size:16px;line-height:1.8;">
+      {{ author.description }}
+    </p>
+
+  </div>
+</section>
+{% endblock body %}

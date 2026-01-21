@@ -714,8 +714,8 @@ def news_detail_with_subsection(request, section_slug, subsection_slug, news_id)
 
 
 
-def default_page_detail(request, link):
-    page = get_object_or_404(Default_pages, link=link)
+def default_page_detail(request, slug):
+    page = get_object_or_404(Default_pages, slug=slug)
 
     main_news = News.published.filter(category__name="প্রধান খবর").order_by('-created_at')[:3]
     elected_news = News.published.filter(category__name="নির্বাচিত খবর").order_by('-created_at')[:5]

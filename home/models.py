@@ -439,9 +439,15 @@ class SiteInfo(models.Model):
 
 class Default_pages(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
+    slug = models.SlugField(max_length=200, null=True, blank=True)
     news_content = CKEditor5Field(blank=True, null=True, config_name='extends')
     
     link = models.CharField(max_length=250, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.title or 'Default_pages'

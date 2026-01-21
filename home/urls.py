@@ -7,6 +7,8 @@ urlpatterns = [
     # Specific routes first (to avoid conflicts with slug-based URLs)
 
     path('authors/', views.authors_list, name="authors"),
+    path('about-us/', views.about_us, name="about_us"),
+
     path('authors/<slug:slug>/', views.author_detail, name="author_detail"),
 
     path('ajax/get-subsections/', views.get_subsections, name='get_subsections'),
@@ -14,7 +16,6 @@ urlpatterns = [
     path('news/react/<int:news_id>/', views.react_to_news, name='react_to_news'),
     path('news/', views.news_page, name='news_page'),  # Old format for backward compatibility
     path('default-pages/<str:link>/', views.default_page_detail, name='default_page_detail'),
-    path('<slug:slug>/', views.default_page_detail, name='default_page_detail'),
     path('jagoron-1lakh/', views.generate_photo, name='generate_photo'),
     path('search/', views.search_news, name='search_news'),
     path('s/<str:short_code>/', views.redirect_short_url, name='redirect_short_url'),
@@ -33,5 +34,7 @@ urlpatterns = [
     # Exclude sitemaps and other system paths
     path('<str:section_slug>/<str:subsection_slug>/', views.news_page_by_slug, name='news_page_subsection'),
     path('<str:section_slug>/', views.news_page_by_slug, name='news_page_section'),
+    # Catch-all pattern for default pages (MUST be last to avoid conflicts)
+    path('<slug:slug>/', views.default_page_detail, name='default_page_detail'),
 
 ]

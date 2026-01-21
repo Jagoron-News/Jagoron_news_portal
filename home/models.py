@@ -973,11 +973,15 @@ class Author(models.Model):
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to="authors/")
     description = models.TextField()
+    position = models.PositiveIntegerField(
+        default=0,
+        help_text="Position for ordering (lower number appears first)"
+    )
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["position", "name"]
 
     def __str__(self):
         return self.name

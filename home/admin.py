@@ -333,8 +333,11 @@ class AuthorRoleAdmin(admin.ModelAdmin):
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ("name", "category", "is_active")
-    list_filter = ("category", "is_active")
+    list_display = ("name", "category", "role", "position", "is_active")
+    list_editable = ("position",)
+    list_filter = ("category", "role", "is_active")
     search_fields = ("name",)
     prepopulated_fields = {"slug": ("name",)}
+    ordering = ("position", "name")
+
 

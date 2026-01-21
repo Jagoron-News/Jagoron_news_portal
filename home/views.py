@@ -1309,11 +1309,15 @@ def authors_list(request):
     })
 
 
+
 def author_detail(request, slug):
     author = get_object_or_404(Author, slug=slug, is_active=True)
     return render(request, "pages/author_detail.html", {
         "author": author
     })
 
+
+def about_us(request):
+    return render(request, "pages/about.html", {})
 
 

@@ -1,6 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.conf import settings
 from PIL import Image
 import os
@@ -141,7 +140,7 @@ class News(models.Model):
 
 
     sub_content = models.TextField(max_length=1000, blank=True, null=True)
-    news_content = RichTextUploadingField(blank=True, null=True, config_name='custom_config')
+    news_content = CKEditor5Field(blank=True, null=True, config_name='extends')
     
     heading_image = models.ImageField(
         upload_to="news/", 
@@ -440,7 +439,7 @@ class SiteInfo(models.Model):
 
 class Default_pages(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
-    news_content = RichTextField(blank=True, null=True, config_name='custom_config')
+    news_content = CKEditor5Field(blank=True, null=True, config_name='extends')
     
     link = models.CharField(max_length=250, blank=True, null=True)
 

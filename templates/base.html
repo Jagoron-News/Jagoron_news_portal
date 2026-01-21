@@ -5822,15 +5822,32 @@ padding: 0;
                 grid-template-columns: repeat(5, 1fr);
                 -webkit-column-count: 5;
                 column-count: 5;
+
+        /* CKEditor 5 Content Styling (Global) */
+        .ck-content { word-break: break-word; }
+        .ck-content .image { display: table; clear: both; text-align: center; margin: 1em auto; max-width: 100%; }
+        .ck-content .image img { display: block; margin: 0 auto; max-width: 100%; height: auto !important; }
+        .ck-content .image.image_resized { max-width: 100%; display: block; box-sizing: border-box; }
+        .ck-content .image.image_resized img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+        .ck-content .image-style-align-left { float: left; margin-right: 1.5em; }
+        .ck-content .image-style-align-right { float: right; margin-left: 1.5em; }
+        .ck-content .image-style-align-center { margin-left: auto !important; margin-right: auto !important; display: block !important; }
+
+        @media (max-width: 768px) {
+            .ck-content .image.image-style-side:not(.image_resized),
+            .ck-content .image-style-align-left:not(.image_resized),
+            .ck-content .image-style-align-right:not(.image_resized) {
+                float: none !important;
+                margin: 1.5em 0 !important;
+                width: 100% !important;
             }
         }
-
 </style>
 
 
 
 
-    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
 
 

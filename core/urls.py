@@ -46,7 +46,7 @@ urlpatterns = [
     path('debug/news-sitemap-debug/', google_news_sitemap, name='news-sitemap-debug'),
 
     path('jag-admin/', admin.site.urls),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
     path('', include('home.urls')),
     path('', include('account.urls')),
 ]

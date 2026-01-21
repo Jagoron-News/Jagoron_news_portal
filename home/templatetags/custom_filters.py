@@ -10,12 +10,11 @@ def clean_rich_text(value):
     
     soup = BeautifulSoup(value, 'html.parser')
     
-    for tag in soup.find_all(True):
-        if 'style' in tag.attrs:
-            del tag.attrs['style']
-            
-        if tag.name == 'div':
-            tag.name = 'p'
+    # CKEditor 5 relies on classes and sometimes inline styles for alignment and resizing.
+    # We should avoid stripping them if we want the "image size via mouse cursor" to work.
+    
+    # If you still want to clean some things, you can do it here, 
+    # but for now let's allow CKEditor 5 to manage its own content.
     
     return str(soup)
 

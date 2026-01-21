@@ -6,7 +6,50 @@ from django.template.response import TemplateResponse
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils import timezone
 from django.urls import reverse
-from .sitemaps import GoogleNewsSitemap
+from .sitemaps import GoogleNewsSitemap, TopicSitemap
+
+
+def topic_sitemap_view(request):
+    """
+    Custom view for Topic sitemap that allows Unicode (Bengali) characters in <loc>
+    """
+    try:
+        sitemap = TopicSitemap()
+        items = list(sitemap.items())
+        
+        # Get site info
+        current_site = get_current_site(request)
+        protocol = 'https' if request.is_secure() else 'http'
+        site_url = f"{protocol}://{current_site.domain}"
+        
+        # Prepare items
+        sitemap_items = []
+        for item in items:
+            try:
+                sitemap_items.append({
+                    'location': f"{site_url}{sitemap.location(item)}",
+                    'lastmod': sitemap.lastmod(item).strftime('%Y-%m-%d') if sitemap.lastmod(item) else timezone.now().strftime('%Y-%m-%d'),
+                    'changefreq': sitemap.changefreq,
+                    'priority': sitemap.priority,
+                })
+            except Exception:
+                continue
+        
+        return TemplateResponse(
+            request,
+            'topic_sitemap.xml',
+            {'items': sitemap_items},
+            content_type='application/xml'
+        )
+    except Exception:
+        # Return empty on error
+        return TemplateResponse(
+            request,
+            'topic_sitemap.xml',
+            {'items': []},
+            content_type='application/xml'
+        )
+
 
 
 def custom_sitemap_index(request, sitemaps):

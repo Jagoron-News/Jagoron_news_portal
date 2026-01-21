@@ -436,6 +436,11 @@ class NewsView(models.Model):
 class SiteInfo(models.Model):
     logo = models.ImageField(upload_to="logo/", blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
+    meta_title = models.CharField(max_length=200, blank=True, null=True, help_text="Home page meta title")
+    meta_description = models.TextField(blank=True, null=True, help_text="Home page meta description")
+
+    def __str__(self):
+        return self.name or "Site Info"
 
 
 class Default_pages(models.Model):

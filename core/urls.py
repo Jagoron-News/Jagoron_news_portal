@@ -8,7 +8,7 @@ from django.urls import re_path as url
 from django.views.static import serve
 from django.views.generic import TemplateView  # <--- 1. Added this import
 from home.sitemaps import NewsSitemap, TopicSitemap, CategorySitemap, SectionSitemap
-from home.sitemap_views import custom_sitemap_index
+from home.sitemap_views import custom_sitemap_index, topic_sitemap_view
 from home.google_news_sitemap_view import google_news_sitemap
 from home.views import robots_txt_view
 
@@ -35,9 +35,9 @@ urlpatterns = [
     path('sitemaps/news-sitemap.xml', google_news_sitemap, name='google-news-sitemap'),  # Google News sitemap
     path('sitemaps/regular-news-sitemap.xml', sitemap, {'sitemaps': {'news': NewsSitemap}}, name='regular-news-sitemap'),  # Regular news sitemap
     path('sitemaps/section-sitemap.xml', sitemap, {'sitemaps': {'section': SectionSitemap}}, name='section-sitemap'),
-    path('sitemaps/topic-sitemap.xml', sitemap, {'sitemaps': {'topic': TopicSitemap}}, name='topic-sitemap'),
+    path('sitemaps/topic-sitemap.xml', topic_sitemap_view, name='topic-sitemap'),
     # Handle trailing slash for sitemaps
-    path('sitemaps/topic-sitemap.xml/', sitemap, {'sitemaps': {'topic': TopicSitemap}}, name='topic-sitemap-slash'),
+    path('sitemaps/topic-sitemap.xml/', topic_sitemap_view, name='topic-sitemap-slash'),
     path('sitemaps/section-sitemap.xml/', sitemap, {'sitemaps': {'section': SectionSitemap}}, name='section-sitemap-slash'),
     path('sitemaps/news-sitemap.xml/', google_news_sitemap, name='google-news-sitemap-slash'),
     path('sitemaps/regular-news-sitemap.xml/', sitemap, {'sitemaps': {'news': NewsSitemap}}, name='regular-news-sitemap-slash'),

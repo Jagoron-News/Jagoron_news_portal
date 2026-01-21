@@ -157,6 +157,19 @@ class News(models.Model):
     )
     main_image_title = models.CharField(max_length=1000, blank=True, null=True)
     
+    # PDF attachment
+    pdf_file = models.FileField(
+        upload_to="news_pdfs/",
+        blank=True,
+        null=True,
+        help_text="Upload a PDF file to attach to this news article"
+    )
+    pdf_title = models.CharField(
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Optional title/description for the PDF"
+    )
 
     reporter = models.CharField(max_length=1000, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

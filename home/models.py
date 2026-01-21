@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError
 from urllib.parse import urlparse, parse_qs
 import random
 import string
+from django.utils.text import slugify
 
 # Create your models here.
 class NavbarItem(models.Model):

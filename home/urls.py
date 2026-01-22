@@ -7,7 +7,10 @@ urlpatterns = [
     # Specific routes first (to avoid conflicts with slug-based URLs)
 
     path('authors/', views.authors_list, name="authors"),
+    path('about-us/', views.about_us, name="about_us"),
+
     path('authors/<slug:slug>/', views.author_detail, name="author_detail"),
+    path('topic/<str:tag_name>/', views.topic_news_page, name='topic_news_page'),
 
     path('ajax/get-subsections/', views.get_subsections, name='get_subsections'),
     path('news/detail/<int:news_id>/', views.news_detail_redirect, name='news_detail_old'),
@@ -33,5 +36,7 @@ urlpatterns = [
     # Exclude sitemaps and other system paths
     path('<str:section_slug>/<str:subsection_slug>/', views.news_page_by_slug, name='news_page_subsection'),
     path('<str:section_slug>/', views.news_page_by_slug, name='news_page_section'),
+    # Catch-all pattern for default pages (MUST be last to avoid conflicts)
+    path('<slug:slug>/', views.default_page_detail, name='default_page_detail'),
 
 ]

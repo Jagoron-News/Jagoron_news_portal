@@ -85,6 +85,21 @@
 }
 
 
+.ck-content.bbc-12k5sdr,
+.ck-content .bbc-12k5sdr,
+.ck-content p,
+.ck-content div,
+.ck-content span,
+.ck-content li {
+    font-weight: 400 !important;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+}
+
+.ck-content b,
+.ck-content strong {
+    font-weight: 700 !important;
+}
 
     /* 
 @font-face {
@@ -5822,15 +5837,307 @@ padding: 0;
                 grid-template-columns: repeat(5, 1fr);
                 -webkit-column-count: 5;
                 column-count: 5;
+
+        /* CKEditor 5 Content Styling (Global) */
+        .ck-content { word-break: break-word; }
+        .ck-content .image { display: table; clear: both; text-align: center; margin: 1em auto; max-width: 100%; }
+        .ck-content .image img { display: block; margin: 0 auto; max-width: 100%; height: auto !important; }
+        .ck-content .image.image_resized { max-width: 100%; display: block; box-sizing: border-box; }
+        .ck-content .image.image_resized img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+        .ck-content .image-style-align-left { float: left; margin-right: 1.5em; }
+        .ck-content .image-style-align-right { float: right; margin-left: 1.5em; }
+        .ck-content .image-style-align-center { margin-left: auto !important; margin-right: auto !important; display: block !important; }
+
+        @media (max-width: 768px) {
+            .ck-content .image.image-style-side:not(.image_resized),
+            .ck-content .image-style-align-left:not(.image_resized),
+            .ck-content .image-style-align-right:not(.image_resized) {
+                float: none !important;
+                margin: 1.5em 0 !important;
+                width: 100% !important;
             }
         }
+
+/* ==========================================================================
+   CKEditor 5 Content Styling (Ultimate Fix)
+   ========================================================================== */
+
+.ck-content {
+    word-break: break-word;
+}
+
+/* Base Image/Figure Styles */
+.ck-content .image {
+    display: table;
+    clear: both;
+    text-align: center;
+    margin: 1em auto;
+    max-width: 100%;
+}
+
+.ck-content .image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto !important;
+    /* Forces aspect ratio compliance */
+}
+
+/* Image Resizing Support */
+.ck-content .image.image_resized {
+    max-width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.ck-content .image.image_resized img {
+    /* Force image to follow container resizing */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.ck-content .image.image_resized>figcaption {
+    display: block;
+}
+
+/* Alignment Styles */
+.ck-content .image-style-side {
+    float: right;
+    margin-left: 1.5em;
+    max-width: 50%;
+}
+
+.ck-content .image-style-align-left {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.ck-content .image-style-align-right {
+    float: right;
+    margin-left: 1.5em;
+}
+
+.ck-content .image-style-align-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* Figure Captions */
+.ck-content .image figcaption {
+    background-color: #f7f7f7;
+    caption-side: bottom;
+    color: #333;
+    display: table-caption;
+    font-size: 0.75em;
+    outline-offset: -1px;
+    padding: 0.6em;
+    word-break: break-word;
+}
+
+/* Tables */
+.ck-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+.ck-content table td,
+.ck-content table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Blockquotes */
+.ck-content blockquote {
+    border-left: 5px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Responsive Scaling for Small Screens */
+@media (max-width: 768px) {
+
+    .ck-content .image.image-style-side,
+    .ck-content .image-style-align-left,
+    .ck-content .image-style-align-right {
+        float: none !important;
+        margin: 1.5em 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        /* Force full width on mobile */
+    }
+
+    .ck-content table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* News Content Wrapper Reset (Fixes forced bolding from .bbc-12k5sdr) */
+.ck-content.bbc-12k5sdr,
+.ck-content .bbc-12k5sdr,
+.ck-content p,
+.ck-content div,
+.ck-content span,
+.ck-content li {
+    font-weight: 400 !important;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+}
+
+.ck-content b,
+.ck-content strong {
+    font-weight: 700 !important;
+}
+
+
+</style>
+
+<style>
+
+    /* ==========================================================================
+   CKEditor 5 Content Styling (Ultimate Fix)
+   ========================================================================== */
+
+.ck-content {
+    word-break: break-word;
+}
+
+/* Base Image/Figure Styles */
+.ck-content .image {
+    display: table;
+    clear: both;
+    text-align: center;
+    margin: 1em auto;
+    max-width: 100%;
+}
+
+.ck-content .image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto !important;
+    /* Forces aspect ratio compliance */
+}
+
+/* Image Resizing Support */
+.ck-content .image.image_resized {
+    max-width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.ck-content .image.image_resized img {
+    /* Force image to follow container resizing */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.ck-content .image.image_resized>figcaption {
+    display: block;
+}
+
+/* Alignment Styles */
+.ck-content .image-style-side {
+    float: right;
+    margin-left: 1.5em;
+    max-width: 50%;
+}
+
+.ck-content .image-style-align-left {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.ck-content .image-style-align-right {
+    float: right;
+    margin-left: 1.5em;
+}
+
+.ck-content .image-style-align-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* Figure Captions */
+.ck-content .image figcaption {
+    background-color: #f7f7f7;
+    caption-side: bottom;
+    color: #333;
+    display: table-caption;
+    font-size: 0.75em;
+    outline-offset: -1px;
+    padding: 0.6em;
+    word-break: break-word;
+}
+
+/* Tables */
+.ck-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+.ck-content table td,
+.ck-content table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Blockquotes */
+.ck-content blockquote {
+    border-left: 5px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Responsive Scaling for Small Screens */
+@media (max-width: 768px) {
+
+    .ck-content .image.image-style-side,
+    .ck-content .image-style-align-left,
+    .ck-content .image-style-align-right {
+        float: none !important;
+        margin: 1.5em 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        /* Force full width on mobile */
+    }
+
+    .ck-content table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* News Content Wrapper Reset (Fixes forced bolding from .bbc-12k5sdr) */
+.ck-content.bbc-12k5sdr,
+.ck-content .bbc-12k5sdr,
+.ck-content p,
+.ck-content div,
+.ck-content span,
+.ck-content li {
+    font-weight: 400 !important;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+}
+
+.ck-content b,
+.ck-content strong {
+    font-weight: 700 !important;
+}
 
 </style>
 
 
-
-
-    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
 
 
 

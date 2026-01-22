@@ -200,9 +200,8 @@ class TopicSitemap(Sitemap):
     
     def location(self, obj):
         """Return the URL for the tag in format /topic/{tag-name}"""
-        # Use tag name (URL-encoded) to match the example format
-        # Example: /topic/ফরহাদ-মজহার
-        tag_name = quote(obj.name, safe='') if obj.name else ''
+        # Use raw tag name without quote() to allow custom view to handle encoding
+        tag_name = obj.name.replace(' ', '-') if obj.name else ''
         return f'/topic/{tag_name}'
 
 

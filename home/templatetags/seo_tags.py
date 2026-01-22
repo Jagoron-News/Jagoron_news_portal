@@ -48,11 +48,25 @@ def seo_meta_tags(context):
         'twitter_image': '',
     }
     
-    # Get SEO data from News, Page, Section, or SubSection
+    # Priority: Home Page (SiteInfo) > SubSection > Section > News > Page
     seo_obj = None
+    if request and request.path == '/':
+        seo_data['meta_title'] = site_info.meta_title or site_name if site_info else site_name
+        seo_data['meta_description'] = site_info.meta_description or '' if site_info else ''
+        seo_data['og_title'] = seo_data['meta_title']
+        seo_data['og_description'] = seo_data['meta_description']
+        seo_data['og_type'] = 'website'
+        seo_data['twitter_title'] = seo_data['meta_title']
+        seo_data['twitter_description'] = seo_data['meta_description']
+        # Set default OG image for home page if not set
+        if site_info and site_info.logo:
+            try:
+                seo_data['og_image'] = request.build_absolute_uri(site_info.logo.url)
+            except:
+                seo_data['og_image'] = site_info.logo.url
+            seo_data['twitter_image'] = seo_data['og_image']
     
-    # Priority: SubSection > Section > News > Page
-    if selected_subsection:
+    elif selected_subsection:
         try:
             seo_obj = selected_subsection.seo
         except:

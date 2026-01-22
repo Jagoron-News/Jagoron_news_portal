@@ -1,6 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.conf import settings
 from PIL import Image
 import os
@@ -142,7 +141,7 @@ class News(models.Model):
 
 
     sub_content = models.TextField(max_length=1000, blank=True, null=True)
-    news_content = RichTextUploadingField(blank=True, null=True, config_name='custom_config')
+    news_content = CKEditor5Field(blank=True, null=True, config_name='extends')
     
     heading_image = models.ImageField(
         upload_to="news/", 
@@ -158,6 +157,19 @@ class News(models.Model):
     )
     main_image_title = models.CharField(max_length=1000, blank=True, null=True)
     
+    # PDF attachment
+    pdf_file = models.FileField(
+        upload_to="news_pdfs/",
+        blank=True,
+        null=True,
+        help_text="Upload a PDF file to attach to this news article"
+    )
+    pdf_title = models.CharField(
+        max_length=200,
+        blank=True,
+        null=True,
+        help_text="Optional title/description for the PDF"
+    )
 
     reporter = models.CharField(max_length=1000, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -437,12 +449,17 @@ class NewsView(models.Model):
 class SiteInfo(models.Model):
     logo = models.ImageField(upload_to="logo/", blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
+    meta_title = models.CharField(max_length=200, blank=True, null=True, help_text="Home page meta title")
+    meta_description = models.TextField(blank=True, null=True, help_text="Home page meta description")
+
+    def __str__(self):
+        return self.name or "Site Info"
 
 
 class Default_pages(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     slug = models.SlugField(max_length=200, null=True, blank=True)
-    news_content = RichTextField(blank=True, null=True, config_name='custom_config')
+    news_content = CKEditor5Field(blank=True, null=True, config_name='extends')
     
     link = models.CharField(max_length=250, blank=True, null=True)
 
@@ -969,11 +986,15 @@ class Author(models.Model):
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to="authors/")
     description = models.TextField()
+    position = models.PositiveIntegerField(
+        default=0,
+        help_text="Position for ordering (lower number appears first)"
+    )
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["position", "name"]
 
     def __str__(self):
         return self.name

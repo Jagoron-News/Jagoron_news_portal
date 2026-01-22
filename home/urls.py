@@ -10,6 +10,7 @@ urlpatterns = [
     path('about-us/', views.about_us, name="about_us"),
 
     path('authors/<slug:slug>/', views.author_detail, name="author_detail"),
+    path('topic/<str:tag_name>/', views.topic_news_page, name='topic_news_page'),
 
     path('ajax/get-subsections/', views.get_subsections, name='get_subsections'),
     path('news/detail/<int:news_id>/', views.news_detail_redirect, name='news_detail_old'),

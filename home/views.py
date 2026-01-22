@@ -206,7 +206,7 @@ def news_page_by_slug(request, section_slug, subsection_slug=None):
     # Exclude system paths that should not be handled by this view
     excluded_paths = ['sitemaps', 'sitemap.xml', 'robots.txt', 'ads.txt', 'admin', 'jag-admin', 
                      'ckeditor', 'static', 'media', 'api', 'debug', 'search', 'news', 'authors',
-                     'default-pages', 'jagoron-1lakh', 'editor', 's']
+                     'default-pages', 'jagoron-1lakh', 'editor', 's', 'topic']
     
     if section_slug in excluded_paths:
         raise Http404("Section not found")
@@ -338,6 +338,84 @@ def news_page_by_slug(request, section_slug, subsection_slug=None):
         'video_page_range': video_page_range,
         'video_max_pages': video_max_pages,
         'video_current_page': video_current_page,
+    }
+    
+    return render(request, 'pages/news.html', context)
+
+
+def topic_news_page(request, tag_name):
+    """
+    Handle news page filtered by topic (tag)
+    URL format: /topic/tag-name/
+    """
+    from django.http import Http404
+    from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+    
+    navbar = NavbarItem.objects.all()
+    page = request.GET.get('page', 1)
+    
+    # Reverse sitemap encoding: replace hyphens with spaces
+    display_name = tag_name.replace('-', ' ')
+    
+    # Try to find tag by name or slug
+    selected_tag = Tag.objects.filter(Q(name__iexact=display_name) | Q(slug__iexact=tag_name)).first()
+    
+    if not selected_tag:
+        # If not found directly, try a more flexible search
+        selected_tag = Tag.objects.filter(Q(name__icontains=display_name) | Q(slug__icontains=tag_name)).first()
+        
+    if not selected_tag:
+        raise Http404("Topic not found")
+        
+    # Get all news for this tag
+    news_list = News.published.filter(tags=selected_tag).order_by('-created_at')
+    
+    paginator = Paginator(news_list, 20)
+    
+    try:
+        news_items = paginator.page(page)
+    except PageNotAnInteger:
+        news_items = paginator.page(1)
+    except EmptyPage:
+        news_items = paginator.page(paginator.num_pages)
+    
+    max_pages = paginator.num_pages
+    current_page = news_items.number
+    
+    if max_pages <= 7:
+        page_range = range(1, max_pages + 1)
+    else:
+        if current_page <= 4:
+            page_range = list(range(1, 8))
+        elif current_page > max_pages - 4:
+            page_range = list(range(max_pages - 6, max_pages + 1))
+        else:
+            page_range = list(range(current_page - 3, current_page + 4))
+            
+    # Sidebar components (standard for news pages)
+    most_read_news_ids = list(
+        NewsView.objects.order_by('-count')[:5].values_list('news_id', flat=True)
+    )
+    most_read_news = [News.objects.get(id=news_id) for news_id in most_read_news_ids if News.objects.filter(id=news_id).exists()]
+    
+    video_list = VideoPost.objects.all().order_by("-id")
+    video_paginator = Paginator(video_list, 12)
+    
+    try:
+        video_page_num = request.GET.get('video_page', 1)
+        video_post = video_paginator.page(video_page_num)
+    except (PageNotAnInteger, EmptyPage):
+        video_post = video_paginator.page(1)
+        
+    context = {
+        'navbar': navbar,
+        'news_items': news_items,
+        'selected_tag': selected_tag,
+        'page_range': page_range,
+        'max_pages': max_pages,
+        'current_page': current_page,
+        'most_read_news': most_read_news,
+        'video_post': video_post,
     }
     
     return render(request, 'pages/news.html', context)

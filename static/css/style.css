@@ -7,11 +7,11 @@
 /*}*/
 
 @font-face {
-  font-family: 'Noto Serif Bengali';
-  src: url('/static/fonts/NotoSerifBengali-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Noto Serif Bengali';
+    src: url('/static/fonts/NotoSerifBengali-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 
@@ -381,7 +381,7 @@ html {
 .bbc-1re47cx:focus {
     -webkit-text-decoration: none;
     text-decoration: none;
-  
+
     margin-bottom: -0.25rem;
 }
 
@@ -502,7 +502,7 @@ print {
     bottom: 0;
     right: 0;
     left: 0;
-    
+
 }
 
 .bbc-1lmzg8c .e11sm0on2::after {
@@ -529,7 +529,7 @@ print {
 
 .bbc-bjn8wh {
     position: relative;
-  
+
 }
 
 .bbc-1n75b6b {
@@ -721,7 +721,7 @@ print {
     left: 0;
     right: 0;
     bottom: 0;
-    
+
     top: 0;
     border: 0.1875rem solid #000000;
     font-family: "Noto Serif Bengali", serif;
@@ -733,7 +733,7 @@ print {
     left: 0;
     right: 0;
     bottom: 0;
-    
+
     top: 0;
     border: 0.1875rem solid #000000;
     font-family: "Noto Serif Bengali", serif;
@@ -745,7 +745,7 @@ print {
     left: 0;
     right: 0;
     bottom: 0;
-    
+
 }
 
 .bbc-azrnys {
@@ -849,12 +849,12 @@ print {
     list-style-type: none;
     margin: 0;
     padding: 0 0.5rem;
-    
+
 }
 
 .bbc-89wdkq {
     padding: 0.75rem 0;
-    
+
 }
 
 .bbc-89wdkq:last-child {
@@ -3360,7 +3360,8 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
 
 .bbc-k6wdzo {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    grid-template-columns: repeat(4, 1fr);
+    /* Changed from 3 to 4 columns */
     gap: 20px;
     padding: 0;
     margin: 0;
@@ -3383,7 +3384,7 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    
+
 }
 
 @media (max-width: 480px) {
@@ -3468,7 +3469,8 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
 
 
 .news-content p {
-    line-height: 1.6; /* Adjust the line-height as needed */
+    line-height: 1.6;
+    /* Adjust the line-height as needed */
 }
 
 
@@ -3489,474 +3491,474 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
 
 
 
-.top_sub_title{
+.top_sub_title {
     font-size: large;
-   }
+}
 
-        .bbc-bg8vrv {
-            max-width: 75rem;
-            margin: 0 auto;
-            display: grid;
+.bbc-bg8vrv {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@media (min-width: 75rem) {
+    .bbc-bg8vrv {
+        padding: 0 1rem;
+        -webkit-column-gap: 1rem;
+        column-gap: 1rem;
+    }
+}
+
+.bbc-1cvxiy9 {
+    grid-column: 1/span 12;
+    padding-bottom: 2rem;
+}
+
+@media (min-width: 63rem) {
+    .bbc-1cvxiy9 {
+        grid-column: 1/span 8;
+    }
+}
+
+.bbc-fa0wmp {
+    padding-bottom: 1.5rem;
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-1151pbn {
+        padding: 0 0.5rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 24.9375rem) {
+    .bbc-1151pbn {
+        padding: 0 0.5rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-1151pbn {
+        padding: 0 1rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1151pbn {
+        padding: 0 1rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-1151pbn {
+        margin-left: 16.666666666666668%;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-1151pbn {
+        margin-left: 33.333333333333336%;
+    }
+}
+
+@supports (display: grid) {
+    .bbc-1151pbn {
+        display: block;
+        width: initial;
+        margin: 0;
+    }
+
+    @media (max-width: 14.9375rem) {
+        .bbc-1151pbn {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 0.5rem;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 15rem) and (max-width: 24.9375rem) {
+        .bbc-1151pbn {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 0.5rem;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 25rem) and (max-width: 37.4375rem) {
+        .bbc-1151pbn {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 1rem;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+        .bbc-1151pbn {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 1rem;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 63rem) and (max-width: 79.9375rem) {
+        .bbc-1151pbn {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-start: 2;
+        }
+    }
+
+    @media (min-width: 80rem) {
+        .bbc-1151pbn {
             grid-template-columns: repeat(12, 1fr);
+            grid-column-end: span 12;
+            grid-column-start: 5;
         }
+    }
+}
 
-        @media (min-width: 75rem) {
-            .bbc-bg8vrv {
-                padding: 0 1rem;
-                -webkit-column-gap: 1rem;
-                column-gap: 1rem;
-            }
+.bbc-qa2lun {
+    font-size: 1.6875rem;
+    line-height: 2.5rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #141414;
+    display: block;
+    margin: 0;
+    padding: 2rem 0;
+    overflow-wrap: anywhere;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-qa2lun {
+        font-size: 1.5rem;
+        line-height: 2.875rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-qa2lun {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-qa2lun {
+        padding: 1rem 0;
+    }
+}
+
+.bbc-qa2lun:focus {
+    outline: none;
+}
+
+.bbc-1qn0xuy {
+    margin: 0;
+    padding-bottom: 1.5rem;
+    width: 100%;
+}
+
+.bbc-j1srjl {
+    position: relative;
+    height: 0;
+
+    -webkit-background-position: center center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: 60px 17px;
+    background-size: 60px 17px;
+    background-color: #F2F2F2;
+}
+
+@media (min-width: 25rem) {
+    .bbc-j1srjl {
+        -webkit-background-size: 77px 22px;
+        background-size: 77px 22px;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-j1srjl {
+        -webkit-background-size: 93px 27px;
+        background-size: 93px 27px;
+    }
+}
+
+.bbc-139onq {
+    width: 100%;
+    object-fit: cover;
+    height: auto;
+    padding-top: 0px;
+}
+
+.bbc-19g7urm {
+    color: #141414;
+    font-size: 0.625rem;
+    line-height: 1rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    background-color: rgba(34, 34, 34, 0.75);
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 0.25rem 0.5rem;
+    position: absolute;
+    bottom: 0;
+    inset-inline-start: 0;
+    margin: 0;
+    font-family: "Noto Serif Bengali", serif;
+    overflow: hidden;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-19g7urm {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-19g7urm {
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+    }
+}
+
+.bbc-19g7urm span {
+    font-size: 0.75rem;
+}
+
+.bbc-1vjaf6b {
+    -webkit-padding-start: 0.5rem;
+    padding-inline-start: 0.5rem;
+}
+
+@media (min-width: 25rem) {
+    .bbc-1vjaf6b {
+        -webkit-padding-start: 1rem;
+        padding-inline-start: 1rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1vjaf6b {
+        -webkit-padding-start: 0;
+        padding-inline-start: 0;
+    }
+}
+
+.bbc-1vjaf6b div {
+    padding: 0;
+}
+
+.bbc-1rvtlej {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bbc-kr9jm9 {
+    color: #141414;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #141414;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 1.375rem;
+    padding-bottom: 0.25rem;
+    -webkit-padding-end: 2.75rem;
+    padding-inline-end: 2.75rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-kr9jm9 {
+        font-size: 1.0625rem;
+        line-height: 2rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-kr9jm9 {
+        font-size: 1.125rem;
+        line-height: 2.125rem;
+    }
+}
+
+.bbc-1qsxwj2 {
+    color: #141414;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 700;
+    color: #545658;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-1qsxwj2 {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1qsxwj2 {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+.bbc-v8pmqw::before {
+    content: "";
+    border-top: 0.125rem solid #8A8C8E;
+    width: 2.5rem;
+    display: block;
+    margin: 1rem 0;
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-19j92fr {
+        padding: 0 0.5rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 24.9375rem) {
+    .bbc-19j92fr {
+        padding: 0 0.5rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-19j92fr {
+        padding: 0 1rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-19j92fr {
+        padding: 0 1rem;
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-19j92fr {
+        margin-left: 20%;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-19j92fr {
+        margin-left: 40%;
+    }
+}
+
+@supports (display: grid) {
+    .bbc-19j92fr {
+        display: block;
+        width: initial;
+        margin: 0;
+    }
+
+    @media (max-width: 14.9375rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 0.5rem;
+            grid-column-start: 1;
         }
+    }
 
-        .bbc-1cvxiy9 {
-            grid-column: 1/span 12;
-            padding-bottom: 2rem;
+    @media (min-width: 15rem) and (max-width: 24.9375rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 0.5rem;
+            grid-column-start: 1;
         }
+    }
 
-        @media (min-width: 63rem) {
-            .bbc-1cvxiy9 {
-                grid-column: 1/span 8;
-            }
+    @media (min-width: 25rem) and (max-width: 37.4375rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            padding: 0 1rem;
+            grid-column-start: 1;
         }
+    }
 
-        .bbc-fa0wmp {
-            padding-bottom: 1.5rem;
+    @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(5, 1fr);
+            grid-column-end: span 5;
+            padding: 0 1rem;
+            grid-column-start: 1;
         }
+    }
 
-        @media (max-width: 14.9375rem) {
-            .bbc-1151pbn {
-                padding: 0 0.5rem;
-                margin-left: 0%;
-            }
+    @media (min-width: 63rem) and (max-width: 79.9375rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(5, 1fr);
+            grid-column-end: span 5;
+            grid-column-start: 2;
         }
+    }
 
-        @media (min-width: 15rem) and (max-width: 24.9375rem) {
-            .bbc-1151pbn {
-                padding: 0 0.5rem;
-                margin-left: 0%;
-            }
+    @media (min-width: 80rem) {
+        .bbc-19j92fr {
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-end: span 10;
+            grid-column-start: 5;
         }
+    }
+}
 
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-1151pbn {
-                padding: 0 1rem;
-                margin-left: 0%;
-            }
-        }
+.bbc-195rdch {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #545658;
+    display: block;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-bottom: 0.25rem;
+}
 
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1151pbn {
-                padding: 0 1rem;
-                margin-left: 0%;
-            }
-        }
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-195rdch {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
 
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-1151pbn {
-                margin-left: 16.666666666666668%;
-            }
-        }
+@media (min-width: 37.5rem) {
+    .bbc-195rdch {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
 
-        @media (min-width: 80rem) {
-            .bbc-1151pbn {
-                margin-left: 33.333333333333336%;
-            }
-        }
+.bbc-195rdch:last-child {
+    padding-bottom: 1rem;
+}
 
-        @supports (display: grid) {
-            .bbc-1151pbn {
-                display: block;
-                width: initial;
-                margin: 0;
-            }
-
-            @media (max-width: 14.9375rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 0.5rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 15rem) and (max-width: 24.9375rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 0.5rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 25rem) and (max-width: 37.4375rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 1rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 1rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 63rem) and (max-width: 79.9375rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-start: 2;
-                }
-            }
-
-            @media (min-width: 80rem) {
-                .bbc-1151pbn {
-                    grid-template-columns: repeat(12, 1fr);
-                    grid-column-end: span 12;
-                    grid-column-start: 5;
-                }
-            }
-        }
-
-        .bbc-qa2lun {
-            font-size: 1.6875rem;
-            line-height: 2.5rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 700;
-            font-style: normal;
-            color: #141414;
-            display: block;
-            margin: 0;
-            padding: 2rem 0;
-            overflow-wrap: anywhere;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-qa2lun {
-                font-size: 1.5rem;
-                line-height: 2.875rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-qa2lun {
-                font-size: 2.5rem;
-                line-height: 3.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-qa2lun {
-                padding: 1rem 0;
-            }
-        }
-
-        .bbc-qa2lun:focus {
-            outline: none;
-        }
-
-        .bbc-1qn0xuy {
-            margin: 0;
-            padding-bottom: 1.5rem;
-            width: 100%;
-        }
-
-        .bbc-j1srjl {
-            position: relative;
-            height: 0;
-          
-            -webkit-background-position: center center;
-            background-position: center center;
-            background-repeat: no-repeat;
-            -webkit-background-size: 60px 17px;
-            background-size: 60px 17px;
-            background-color: #F2F2F2;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-j1srjl {
-                -webkit-background-size: 77px 22px;
-                background-size: 77px 22px;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-j1srjl {
-                -webkit-background-size: 93px 27px;
-                background-size: 93px 27px;
-            }
-        }
-
-        .bbc-139onq {
-            width: 100%;
-            object-fit: cover;
-            height: auto;
-            padding-top: 0px;
-        }
-
-        .bbc-19g7urm {
-            color: #141414;
-            font-size: 0.625rem;
-            line-height: 1rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            background-color: rgba(34, 34, 34, 0.75);
-            text-transform: uppercase;
-            color: #FFFFFF;
-            padding: 0.25rem 0.5rem;
-            position: absolute;
-            bottom: 0;
-            inset-inline-start: 0;
-            margin: 0;
-            font-family: "Noto Serif Bengali", serif;
-            overflow: hidden;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-19g7urm {
-                font-size: 0.75rem;
-                line-height: 1.125rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-19g7urm {
-                font-size: 0.75rem;
-                line-height: 1.125rem;
-            }
-        }
-
-        .bbc-19g7urm span {
-            font-size: 0.75rem;
-        }
-
-        .bbc-1vjaf6b {
-            -webkit-padding-start: 0.5rem;
-            padding-inline-start: 0.5rem;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-1vjaf6b {
-                -webkit-padding-start: 1rem;
-                padding-inline-start: 1rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1vjaf6b {
-                -webkit-padding-start: 0;
-                padding-inline-start: 0;
-            }
-        }
-
-        .bbc-1vjaf6b div {
-            padding: 0;
-        }
-
-        .bbc-1rvtlej {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .bbc-kr9jm9 {
-            color: #141414;
-            font-size: 0.875rem;
-            line-height: 1.75rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 700;
-            color: #141414;
-            display: inline-block;
-            vertical-align: middle;
-            padding-top: 1.375rem;
-            padding-bottom: 0.25rem;
-            -webkit-padding-end: 2.75rem;
-            padding-inline-end: 2.75rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-kr9jm9 {
-                font-size: 1.0625rem;
-                line-height: 2rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-kr9jm9 {
-                font-size: 1.125rem;
-                line-height: 2.125rem;
-            }
-        }
-
-        .bbc-1qsxwj2 {
-            color: #141414;
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 700;
-            color: #545658;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-1qsxwj2 {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1qsxwj2 {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        .bbc-v8pmqw::before {
-            content: "";
-            border-top: 0.125rem solid #8A8C8E;
-            width: 2.5rem;
-            display: block;
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 14.9375rem) {
-            .bbc-19j92fr {
-                padding: 0 0.5rem;
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 15rem) and (max-width: 24.9375rem) {
-            .bbc-19j92fr {
-                padding: 0 0.5rem;
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-19j92fr {
-                padding: 0 1rem;
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-19j92fr {
-                padding: 0 1rem;
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-19j92fr {
-                margin-left: 20%;
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-19j92fr {
-                margin-left: 40%;
-            }
-        }
-
-        @supports (display: grid) {
-            .bbc-19j92fr {
-                display: block;
-                width: initial;
-                margin: 0;
-            }
-
-            @media (max-width: 14.9375rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 0.5rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 15rem) and (max-width: 24.9375rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 0.5rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 25rem) and (max-width: 37.4375rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    padding: 0 1rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(5, 1fr);
-                    grid-column-end: span 5;
-                    padding: 0 1rem;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 63rem) and (max-width: 79.9375rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(5, 1fr);
-                    grid-column-end: span 5;
-                    grid-column-start: 2;
-                }
-            }
-
-            @media (min-width: 80rem) {
-                .bbc-19j92fr {
-                    grid-template-columns: repeat(10, 1fr);
-                    grid-column-end: span 10;
-                    grid-column-start: 5;
-                }
-            }
-        }
-
-        .bbc-195rdch {
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            color: #545658;
-            display: block;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            padding-bottom: 0.25rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-195rdch {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-195rdch {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        .bbc-195rdch:last-child {
-            padding-bottom: 1rem;
-        }
-
-       /* Add to your CSS */
+/* Add to your CSS */
 
 
 /* Add these new styles to handle RichTextField content */
@@ -3964,1801 +3966,1938 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
 .bbc-12k5sdr div,
 .bbc-12k5sdr span,
 .bbc-12k5sdr li {
-font-size: 0.875rem !important;
-line-height: 1.75rem !important;
-font-family: "Noto Serif Bengali", Helmet, Freesans, Helvetica, Arial, sans-serif !important;
-font-weight: 400 !important;
-font-style: normal !important;
-color: #141414 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.75rem !important;
+    font-family: "Noto Serif Bengali", Helmet, Freesans, Helvetica, Arial, sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    color: #141414 !important;
 }
 
 /* Handle spacing between paragraphs in RichTextField */
 .bbc-12k5sdr p:not(:last-child) {
-margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Reset any default margins/paddings that might come from the editor */
 .bbc-12k5sdr p {
-margin: 0;
-padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-12k5sdr {
-                font-size: 1.0625rem;
-                line-height: 2rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-12k5sdr {
-                font-size: 1.125rem;
-                line-height: 2.125rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-12k5sdr {
-                padding-right: 2.5rem;
-            }
-        }
-
-        .bbc-geybui {
-            background-color: #E6E8EA;
-            display: none;
-            visibility: hidden;
-            padding: 0;
-        }
-
-        @media (min-width: 18.75rem) {
-            .bbc-geybui {
-                min-height: 5.1875rem;
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-flex-direction: column;
-                -ms-flex-direction: column;
-                flex-direction: column;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                -webkit-justify-content: center;
-                justify-content: center;
-                visibility: visible;
-            }
-        }
-
-        @media (min-width: 19.75rem) {
-            .bbc-geybui {
-                padding: 1rem 0 0.5rem 0;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-geybui {
-                min-height: 17.6875rem;
-            }
-        }
-
-        @media (max-width: 14.9375rem) {
-            .bbc-1n4f7vm {
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 15rem) and (max-width: 24.9375rem) {
-            .bbc-1n4f7vm {
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-1n4f7vm {
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1n4f7vm {
-                margin-left: 0%;
-            }
-        }
-
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-1n4f7vm {
-                margin-left: 20%;
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-1n4f7vm {
-                margin-left: 40%;
-            }
-        }
-
-        @supports (display: grid) {
-            .bbc-1n4f7vm {
-                display: block;
-                width: initial;
-                margin: 0;
-            }
-
-            @media (max-width: 14.9375rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 15rem) and (max-width: 24.9375rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 25rem) and (max-width: 37.4375rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(5, 1fr);
-                    grid-column-end: span 5;
-                    grid-column-start: 1;
-                }
-            }
-
-            @media (min-width: 63rem) and (max-width: 79.9375rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(5, 1fr);
-                    grid-column-end: span 5;
-                    grid-column-start: 2;
-                }
-            }
-
-            @media (min-width: 80rem) {
-                .bbc-1n4f7vm {
-                    grid-template-columns: repeat(10, 1fr);
-                    grid-column-end: span 10;
-                    grid-column-start: 5;
-                }
-            }
-        }
-
-        .bbc-mhepzx {
-            display: block;
-            font-size: 1.375rem;
-            line-height: 1.875rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            margin-bottom: 1rem;
-            color: #3F3F42;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-mhepzx {
-                font-size: 1.375rem;
-                line-height: 1.875rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-mhepzx {
-                font-size: 1.4375rem;
-                line-height: 2rem;
-            }
-        }
-
-        @media (min-width: 0rem) {
-            .bbc-mhepzx {
-                margin-left: 0.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-mhepzx {
-                margin-left: 1rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-mhepzx {
-                margin-left: 0;
-            }
-        }
-
-        .bbc-ekzrm2 {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            overflow-x: scroll;
-            scroll-behavior: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .bbc-ekzrm2::-webkit-scrollbar {
-            display: none;
-        }
-
-        .bbc-1k00xvf {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-shrink: 0;
-            -ms-flex-negative: 0;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 0rem) {
-            .bbc-1k00xvf {
-                margin-left: 0.5rem;
-            }
-
-            .bbc-1k00xvf:first-child {
-                margin-left: 0.5rem;
-            }
-
-            .bbc-1k00xvf:last-child {
-                margin-right: 0.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-1k00xvf {
-                margin-left: 1rem;
-            }
-
-            .bbc-1k00xvf:first-child {
-                margin-left: 1rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1k00xvf {
-                margin-left: 1rem;
-            }
-
-            .bbc-1k00xvf:first-child {
-                margin-left: 0;
-            }
-        }
-
-        .bbc-2e8h64 {
-            position: relative;
-            background-color: #FFFFFF;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 0rem) {
-            .bbc-2e8h64 {
-                width: 14.8125rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-2e8h64 {
-                width: 11.125rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-2e8h64 {
-                width: 12.6875rem;
-            }
-        }
-
-        .bbc-cr4eaj {
-            position: static;
-            color: #222222;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            overflow-wrap: break-word;
-            display: inline-block;
-            font-size: 0.9375rem;
-            line-height: 1.4375rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 700;
-            font-style: normal;
-            width: 100%;
-            overflow-wrap: break-word;
-            text-overflow: ellipsis;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            overflow-x: hidden;
-            overflow-y: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            color: #202224;
-        }
-
-        .bbc-cr4eaj:before {
-            bottom: 0;
-            content: '';
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: 0;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        .bbc-cr4eaj:hover,
-        .bbc-cr4eaj:focus {
-            -webkit-text-decoration: underline;
-            text-decoration: underline;
-        }
-
-        .bbc-cr4eaj:visited {
-            color: #6E6E73;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-cr4eaj {
-                font-size: 0.9375rem;
-                line-height: 1.4375rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-cr4eaj {
-                font-size: 1.0625rem;
-                line-height: 1.5rem;
-            }
-        }
-
-        .bbc-cr4eaj:hover,
-        .bbc-cr4eaj:focus {
-            -webkit-text-decoration: underline;
-            text-decoration: underline;
-        }
-
-        .bbc-cr4eaj:visited {
-            color: #545658;
-        }
-
-        .bbc-1weq8sb {
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            color: #545658;
-            display: block;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            margin-top: 0.5rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-1weq8sb {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1weq8sb {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        .bbc-dltbep {
-            color: #141414;
-            font-size: 0.8125rem;
-            line-height: 1.625rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            color: #545658;
-            margin-top: 0.5rem;
-            margin-inline: 0.5rem 0;
-            padding-inline: 0.5rem;
-            width: calc(100% - 0.5rem);
-            border-inline-start: 0.0625rem solid #6E6E73;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-dltbep {
-                font-size: 0.8125rem;
-                line-height: 1.625rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-dltbep {
-                font-size: 1.0625rem;
-                line-height: 1.875rem;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-dltbep {
-                width: calc(100% - 1rem);
-                margin-inline: 1rem 0;
-                padding-inline: 0.5rem 1rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-dltbep {
-                width: 100%;
-                margin: 0.5rem 0 0;
-                padding-inline: 0.5rem 0;
-            }
-        }
-
-        .bbc-dltbep>span>p {
-            padding-bottom: 1.5rem;
-            margin: 0;
-        }
-
-        .bbc-dltbep>span>p:last-child {
-            padding-bottom: 0;
-        }
-
-        .bbc-6ux0rd {
-            font-size: 1.5625rem;
-            line-height: 2rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 700;
-            font-style: normal;
-            color: #141414;
-            padding: 0.5rem 0;
-            margin: calc(1.5rem - 0.5rem) 0;
-            scroll-margin-top: 1rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-6ux0rd {
-                font-size: 1.8125rem;
-                line-height: 2.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-6ux0rd {
-                font-size: 2.0625rem;
-                line-height: 3rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-6ux0rd {
-                margin-top: calc(2rem - 0.5rem);
-            }
-        }
-
-        .bbc-6ux0rd:focus-visible {
-            outline: 0.1875rem solid #000000;
-            box-shadow: 0 0 0 0.1875rem #FFFFFF;
-            outline-offset: 0.1875rem;
-        }
-
-        .bbc-n8oauk {
-            color: #222222;
-            border-bottom: 1px solid #B80000;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-        }
-
-        .bbc-n8oauk:visited {
-            color: #6E6E73;
-            border-bottom: 1px solid #6E6E73;
-        }
-
-        .bbc-n8oauk:focus,
-        .bbc-n8oauk:hover {
-            border-bottom: 2px solid #B80000;
-            color: #B80000;
-        }
-
-        .bbc-1l5nxv5 {
-            padding-bottom: 2.5rem;
-            margin: 1rem;
-            padding-bottom: 0.5rem;
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1l5nxv5 {
-                margin: 2rem 0;
-                padding-bottom: 2rem;
-            }
-        }
-
-        .bbc-1f2ds04 {
-            position: relative;
-            z-index: 0;
-            color: #141414;
-            margin-top: 2rem;
-            margin-top: 0;
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1f2ds04 {
-                margin-top: 1.5rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1f2ds04 {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1f2ds04 {
-                margin-bottom: 1rem;
-            }
-        }
-
-        .bbc-1xclg2i {
-            margin: 0;
-            padding: 0;
-        }
-
-        .bbc-1fttcpj {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-        }
-
-        .bbc-127x8fy {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-flex-flow: row nowrap;
-            -webkit-flex-flow: row nowrap;
-            -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-            -webkit-box-pack: justify;
-            -webkit-justify-content: space-between;
-            justify-content: space-between;
-            min-height: 2.75rem;
-            -webkit-align-items: baseline;
-            -webkit-box-align: baseline;
-            -ms-flex-align: baseline;
-            align-items: baseline;
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-127x8fy {
-                -webkit-align-items: stretch;
-                -webkit-box-align: stretch;
-                -ms-flex-align: stretch;
-                align-items: stretch;
-            }
-        }
-
-        .bbc-9svztz {
-            font-size: 1.375rem;
-            line-height: 1.875rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 700;
-            font-style: normal;
-            background-color: #F6F6F6;
-            margin: 1rem 0;
-            padding-right: 0.5rem;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-align-items: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-9svztz {
-                font-size: 1.375rem;
-                line-height: 1.875rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-9svztz {
-                font-size: 1.4375rem;
-                line-height: 2rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-9svztz {
-                margin: 0;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-9svztz {
-                padding-right: 1rem;
-            }
-        }
-
-        .bbc-1c01ksb {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-flex-wrap: wrap;
-            -webkit-flex-wrap: wrap;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            margin-top: -0.5rem;
-            margin-bottom: 0;
-            margin-left: -0.25rem;
-            margin-right: -0.25rem;
-            padding: 0;
-            list-style-type: none;
-        }
-
-        .bbc-q3w86m {
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            word-break: break-word;
-            margin-top: 0.5rem;
-            margin-left: 0.25rem;
-            margin-right: 0.25rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-q3w86m {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-q3w86m {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        .bbc-q3w86m a {
-            display: -webkit-inline-box;
-            display: -webkit-inline-flex;
-            display: -ms-inline-flexbox;
-            display: inline-flex;
-            min-height: 2.75rem;
-            padding: 0.5rem 1rem;
-            -webkit-align-items: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            background-color: #FFFFFF;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            color: #222222;
-        }
-
-        .bbc-q3w86m a:hover,
-        .bbc-q3w86m a:focus {
-            -webkit-text-decoration: underline;
-            text-decoration: underline;
-        }
-
-        .bbc-q3w86m a:visited {
-            color: #6E6E73;
-        }
-
-        .bbc-tpioxw {
-            grid-column: 1/span 12;
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-tpioxw {
-                grid-column: 9/span 4;
-                margin-top: 2rem;
-            }
-        }
-
-        .bbc-72c20u {
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-72c20u {
-                display: block;
-                margin-bottom: 0.5rem;
-                padding: 1rem;
-            }
-        }
-
-        [amp-x-topStoriesExperiment="show_at_halfway"] .bbc-72c20u {
-            display: none;
-        }
-
-        @media (min-width: 63rem) {
-            [amp-x-topStoriesExperiment="show_at_halfway"] .bbc-72c20u {
-                display: block;
-                margin-bottom: 0.5rem;
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 24.9375rem) {
-            .bbc-8cenrp {
-                padding: 0 0.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            @media (max-width: 62.9375rem) {
-                .bbc-8cenrp {
-                    padding: 0 1rem;
-                }
-            }
-        }
-
-        .bbc-g47oqm {
-            position: relative;
-            z-index: 0;
-            color: #141414;
-            margin-top: 2rem;
-            margin-top: 0;
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-g47oqm {
-                margin-top: 1.5rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-g47oqm {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-g47oqm {
-                margin-top: 0;
-            }
-        }
-
-        .bbc-lvnea5 {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-lvnea5 {
-                display: -webkit-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-flex-wrap: wrap;
-                -webkit-flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
-                flex-wrap: wrap;
-                gap: calc(1rem - 0.375rem);
-            }
-        }
-
-        .bbc-s6v87m {
-            height: 100%;
-            margin-bottom: 1rem;
-        }
-
-        .bbc-s6v87m:last-child {
-            margin: 0;
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-s6v87m {
-                height: inherit;
-                -webkit-box-flex: 1;
-                -webkit-flex-grow: 1;
-                -ms-flex-positive: 1;
-                flex-grow: 1;
-                -webkit-flex-basis: 0;
-                -ms-flex-preferred-size: 0;
-                flex-basis: 0;
-                margin: 0;
-            }
-        }
-
-        .bbc-ey9z5j {
-            border: 0.1875rem solid transparent;
-            height: 100%;
-        }
-
-        .bbc-70p486 {
-            position: relative;
-            background-color: #FFFFFF;
-            height: 100%;
-        }
-
-        .bbc-2xm90o {
-            padding: 0.5rem;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-2xm90o {
-                padding: 1rem 0.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-2xm90o {
-                padding: 1rem;
-            }
-        }
-
-        .bbc-1nc9jnp {
-            color: #141414;
-            margin: 0;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 700;
-            font-style: normal;
-            font-size: 0.9375rem;
-            line-height: 1.4375rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-1nc9jnp {
-                font-size: 0.9375rem;
-                line-height: 1.4375rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1nc9jnp {
-                font-size: 1.0625rem;
-                line-height: 1.5rem;
-            }
-        }
-
-        .bbc-154s5g9 {
-            position: static;
-            color: #222222;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            overflow-wrap: anywhere;
-            display: inline-block;
-        }
-
-        .bbc-154s5g9:hover,
-        .bbc-154s5g9:focus {
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            color:#eb2227;
-        }
-
-        .bbc-154s5g9:before {
-            bottom: 0;
-            content: '';
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: 0;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        .bbc-154s5g9:visited {
-            color: #6E6E73;
-        }
-
-        .bbc-1wir2uw {
-            color: #006666;
-            display: inline-block;
-            vertical-align: -0.125rem;
-            position: relative;
-            -webkit-margin-end: 0.25rem;
-            margin-inline-end: 0.25rem;
-            width: 0.9375rem;
-            height: 0.9375rem;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-1wir2uw {
-                width: 1rem;
-                height: 1rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .bbc-1rjgwf9 {
-                -webkit-animation: animation-1lwo6e7 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s 3;
-                animation: animation-1lwo6e7 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s 3;
-            }
-        }
-
-        @-webkit-keyframes animation-1lwo6e7 {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes animation-1lwo6e7 {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .bbc-67ssno {
-            color: #006666;
-            display: inline-block;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 700;
-            -webkit-margin-end: 0.5rem;
-            margin-inline-end: 0.5rem;
-        }
-
-        .bbc-a1j7gk {
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            color: #545658;
-            display: block;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            padding-top: 0.5rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-a1j7gk {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-a1j7gk {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        .bbc-10pxgv6 {
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-10pxgv6 {
-                margin-bottom: 0.5rem;
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 24.9375rem) {
-            .bbc-6bz6fw {
-                padding: 0 0.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 62.9375rem) {
-            .bbc-6bz6fw {
-                padding: 0 1rem;
-            }
-        }
-
-        .bbc-ofnqcj {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-ofnqcj {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                -webkit-column-gap: 1rem;
-                column-gap: 1rem;
-                row-gap: 1.5rem;
-            }
-        }
-
-        .bbc-1q5cdze {
-            padding: 0.5rem 0 1rem;
-            line-height: 0;
-            height: 100%;
-        }
-
-        .bbc-1q5cdze:last-child {
-            border: none;
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1q5cdze {
-                padding: 1rem 0 1rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1q5cdze {
-                padding: 0 0 1.5rem;
-            }
-        }
-
-        .bbc-1q5cdze:first-child {
-            padding-top: 0;
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1q5cdze:first-child {
-                padding-top: 1rem;
-            }
-        }
-
-        .bbc-1q5cdze:last-child {
-            padding-bottom: 0;
-        }
-
-        .bbc-1q5cdze:first-child {
-            padding: 0 0 0.5rem 0;
-        }
-
-        .bbc-1q5cdze:last-child {
-            padding: 0.5rem 0 0 0;
-        }
-
-        .bbc-1q5cdze:not(:first-child):not(:last-child) {
-            padding: 0.5rem 0 0.5rem 0;
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1q5cdze {
-                padding: 0;
-            }
-
-            .bbc-1q5cdze:first-child,
-            .bbc-1q5cdze:last-child,
-            .bbc-1q5cdze:not(:first-child):not(:last-child) {
-                padding: 0;
-            }
-        }
-
-        .bbc-oz5u0n {
-            position: relative;
-            width: 100%;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            height: 100%;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-        }
-
-        .bbc-oz5u0n:hover a {
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            color: #eb2227;
-        }
-
-        .bbc-oz5u0n:visited a {
-            color: #E6E8EA;
-        }
-
-        .bbc-18rv2kn {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 5;
-        }
-
-        .bbc-1bepigl {
-            position: relative;
-            height: 0;
-            
-            -webkit-background-position: center center;
-            background-position: center center;
-            background-repeat: no-repeat;
-            -webkit-background-size: 60px 17px;
-            background-size: 60px 17px;
-            background-color: #3F3F42;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-1bepigl {
-                -webkit-background-size: 77px 22px;
-                background-size: 77px 22px;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1bepigl {
-                -webkit-background-size: 93px 27px;
-                background-size: 93px 27px;
-            }
-        }
-
-        .bbc-10klw3m {
-            height: 100%;
-        }
-
-        .bbc-7gzyga {
-            min-height: 100px;
-            padding-bottom: 1rem;
-            background-color: #202224;
-        }
-
-        .bbc-1uk1gs8 {
-            margin: 0;
-        }
-        .bbc-hmbapf {
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 0.9375rem;
-            line-height: 1.33;
-            display: inline-block;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            margin: 0.875rem 0.5rem 0 0.5rem;
-            color: #FFFFFF;
-        }
-        
-
-        .bbc-hmbapf:focus {
-            -webkit-text-decoration: none;
-            text-decoration: none;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-hmbapf {
-                font-size: 1rem;
-                line-height: 1.25;
-                margin: 0.875rem 1rem 0 1rem;
-            }
-        }
-
-        .bbc-hmbapf:visited {
-            color: #E6E8EA;
-        }
-
-        .bbc-lkd68d {
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            color: #545658;
-            display: block;
-            font-family: "Noto Serif Bengali", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 0.8125rem;
-            padding: 0.75rem 0.5rem 0 0.5rem;
-            color: #E6E8EA;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-lkd68d {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-lkd68d {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-lkd68d {
-                font-size: 0.875rem;
-                padding: 0.75rem 1rem 0 1rem;
-            }
-        }
-
-        @media (max-width: 24.9375rem) {
-            .bbc-1pg0aej {
-                margin: 0 0.5rem;
-                padding-bottom: 1.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            @media (max-width: 62.9375rem) {
-                .bbc-1pg0aej {
-                    margin: 0 1rem;
-                    padding-bottom: 2rem;
-                }
-            }
-        }
-
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-1pg0aej {
-                margin: 0 1rem;
-                padding-bottom: 2.5rem;
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-1pg0aej {
-                margin: 0 auto;
-                padding: 0 1rem 1.5rem;
-                max-width: 80rem;
-            }
-        }
-
-        .bbc-1rpw6bb {
-            position: relative;
-            z-index: 0;
-            color: #141414;
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1rpw6bb {
-                margin-top: 1.5rem;
-            }
-        }
-
-        @media (min-width: 63rem) {
-            .bbc-1rpw6bb {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-1rpw6bb {
-                margin-bottom: 1rem;
-            }
-        }
-
-        .bbc-lx5wvu {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            grid-auto-flow: column;
-            grid-template-rows: repeat(5, auto);
-        }
-
-        @supports (display: grid) {
-            .bbc-lx5wvu {
-                display: grid;
-                position: initial;
-                width: initial;
-                margin: 0;
-            }
-
-            @media (max-width: 14.9375rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-gap: 0.5rem;
-                }
-            }
-
-            @media (min-width: 15rem) and (max-width: 24.9375rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-gap: 0.5rem;
-                }
-            }
-
-            @media (min-width: 25rem) and (max-width: 37.4375rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-gap: 0.5rem;
-                }
-            }
-
-            @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                    grid-column-gap: 1rem;
-                }
-            }
-
-            @media (min-width: 63rem) and (max-width: 79.9375rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(8, 1fr);
-                    grid-column-end: span 8;
-                    grid-column-gap: 1rem;
-                }
-            }
-
-            @media (min-width: 80rem) {
-                .bbc-lx5wvu {
-                    grid-template-columns: repeat(20, 1fr);
-                    grid-column-end: span 20;
-                    grid-column-gap: 1rem;
-                }
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-lx5wvu {
-                grid-auto-flow: row;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-lx5wvu {
-                grid-template-rows: repeat(3, auto);
-            }
-        }
-
-        .bbc-jsrhcr {
-            position: relative;
-            padding-bottom: 1.5rem;
-        }
-
-        @media (max-width: 14.9375rem) {
-            .bbc-jsrhcr {
-                width: calc(100%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @media (min-width: 15rem) and (max-width: 24.9375rem) {
-            .bbc-jsrhcr {
-                width: calc(100%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-jsrhcr {
-                width: calc(100%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-jsrhcr {
-                width: calc(50%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-jsrhcr {
-                width: calc(50%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-jsrhcr {
-                width: calc(20%);
-                display: inline-block;
-                vertical-align: top;
-            }
-        }
-
-        @supports (display: grid) {
-            .bbc-jsrhcr {
-                display: block;
-                width: initial;
-                margin: 0;
-            }
-
-            @media (max-width: 14.9375rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                }
-            }
-
-            @media (min-width: 15rem) and (max-width: 24.9375rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                }
-            }
-
-            @media (min-width: 25rem) and (max-width: 37.4375rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(6, 1fr);
-                    grid-column-end: span 6;
-                }
-            }
-
-            @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(3, 1fr);
-                    grid-column-end: span 3;
-                }
-            }
-
-            @media (min-width: 63rem) and (max-width: 79.9375rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(4, 1fr);
-                    grid-column-end: span 4;
-                }
-            }
-
-            @media (min-width: 80rem) {
-                .bbc-jsrhcr {
-                    grid-template-columns: repeat(4, 1fr);
-                    grid-column-end: span 4;
-                }
-            }
-        }
-
-        .bbc-1is9yal {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-flex-direction: row;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            margin: 0;
-            padding: 0;
-        }
-
-        @media (max-width: 14.9375rem) {
-            .bbc-1mfcynm {
-                min-width: 1rem;
-            }
-        }
-
-        @media (min-width: 15rem) and (max-width: 24.9375rem) {
-            .bbc-1mfcynm {
-                min-width: 1rem;
-            }
-        }
-
-        @media (min-width: 25rem) and (max-width: 37.4375rem) {
-            .bbc-1mfcynm {
-                min-width: 1rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1mfcynm {
-                min-width: 1.5rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1mfcynm {
-                min-width: 1.5rem;
-            }
-        }
-
-        @supports (grid-template-columns: fit-content(200px)) {
-            @media (min-width: 37.5rem) {
-                .bbc-1mfcynm {
-                    min-width: 1.5rem;
-                }
-            }
-        }
-
-        @media (min-width: 80rem) {
-            .bbc-1mfcynm {
-                min-width: 1.5rem;
-            }
-        }
-
-        .bbc-uo8uve {
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            position: relative;
-            color: #B80000;
-            margin: 0;
-            padding: 0;
-            font-size: 2rem;
-            line-height: 2.25rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-uo8uve {
-                font-size: 2.25rem;
-                line-height: 2.75rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-uo8uve {
-                font-size: 3.1875rem;
-                line-height: 3.75rem;
-            }
-        }
-
-        .bbc-14zb6im {
-            padding-top: 0.375rem;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        @supports (grid-template-columns: fit-content(200px)) {
-            .bbc-14zb6im {
-                padding-right: 0;
-            }
-        }
-
-        .bbc-hq7sa5 {
-            font-size: 0.9375rem;
-            line-height: 1.4375rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 700;
-            position: static;
-            color: #222222;
-            -webkit-text-decoration: none;
-            text-decoration: none;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-hq7sa5 {
-                font-size: 0.9375rem;
-                line-height: 1.4375rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-hq7sa5 {
-                font-size: 1.0625rem;
-                line-height: 1.5rem;
-            }
-        }
-
-        .bbc-hq7sa5:hover,
-        .bbc-hq7sa5:focus {
-            -webkit-text-decoration: underline;
-            text-decoration: underline;
-        }
-
-        .bbc-hq7sa5:before {
-            bottom: 0;
-            content: '';
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: 0;
-            white-space: nowrap;
-            z-index: 1;
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-hq7sa5 {
-                font-size: 1.1875rem;
-                line-height: 1.75rem;
-            }
-
-            @media (min-width: 20rem) and (max-width: 37.4375rem) {
-                .bbc-hq7sa5 {
-                    font-size: 1.25rem;
-                    line-height: 1.875rem;
-                }
-            }
-
-            @media (min-width: 37.5rem) {
-                .bbc-hq7sa5 {
-                    font-size: 1.3125rem;
-                    line-height: 1.875rem;
-                }
-            }
-        }
-
-        .bbc-1lvqtkx {
-            content-visibility: auto;
-            contain-intrinsic-size: 33.125rem;
-        }
-
-        @media (min-width: 15rem) {
-            .bbc-1lvqtkx {
-                contain-intrinsic-size: 26.563rem;
-            }
-        }
-
-        @media (min-width: 20) {
-            .bbc-1lvqtkx {
-                contain-intrinsic-size: 23.438rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-1lvqtkx {
-                contain-intrinsic-size: 21.875rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-1lvqtkx {
-                contain-intrinsic-size: 17.188rem;
-            }
-        }
-
-        .bbc-5g7yny {
-            background-color: #B80000;
-            height: 2.75rem;
-            width: 100%;
-            padding: 0 0.5rem;
-            border-top: 0.0625rem solid transparent;
-            position: relative;
-            z-index: 1;
-        }
-
-        @media (min-width: 15rem) {
-            .bbc-5g7yny {
-                height: 3.75rem;
-                padding: 0 0.5rem;
-            }
-        }
-
-        @media (min-width: 25rem) {
-            .bbc-5g7yny {
-                height: 3.75rem;
-                padding: 0 1rem;
-            }
-        }
-
-        @media (min-width: 37.5rem) {
-            .bbc-5g7yny {
-                height: 4rem;
-            }
-        }
-
-        .bbc-5g7yny svg {
-            fill: currentColor;
-        }
-
-        @media screen and (forced-colors: active) {
-            .bbc-5g7yny svg {
-                fill: linkText;
-            }
-        }
-
-        .bbc-1ec4rn5 {
-            font-size: 0.75rem;
-            line-height: 1.25rem;
-            font-family: "Noto Serif Bengali", serif;
-            font-style: normal;
-            font-weight: 400;
-            background-color: #222222;
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-12k5sdr {
+        font-size: 1.0625rem;
+        line-height: 2rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-12k5sdr {
+        font-size: 1.125rem;
+        line-height: 2.125rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-12k5sdr {
+        padding-right: 2.5rem;
+    }
+}
+
+.bbc-geybui {
+    background-color: #E6E8EA;
+    display: none;
+    visibility: hidden;
+    padding: 0;
+}
+
+@media (min-width: 18.75rem) {
+    .bbc-geybui {
+        min-height: 5.1875rem;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        visibility: visible;
+    }
+}
+
+@media (min-width: 19.75rem) {
+    .bbc-geybui {
+        padding: 1rem 0 0.5rem 0;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-geybui {
+        min-height: 17.6875rem;
+    }
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-1n4f7vm {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 24.9375rem) {
+    .bbc-1n4f7vm {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-1n4f7vm {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1n4f7vm {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-1n4f7vm {
+        margin-left: 20%;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-1n4f7vm {
+        margin-left: 40%;
+    }
+}
+
+@supports (display: grid) {
+    .bbc-1n4f7vm {
+        display: block;
+        width: initial;
+        margin: 0;
+    }
+
+    @media (max-width: 14.9375rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 15rem) and (max-width: 24.9375rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 25rem) and (max-width: 37.4375rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(5, 1fr);
+            grid-column-end: span 5;
+            grid-column-start: 1;
+        }
+    }
+
+    @media (min-width: 63rem) and (max-width: 79.9375rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(5, 1fr);
+            grid-column-end: span 5;
+            grid-column-start: 2;
+        }
+    }
+
+    @media (min-width: 80rem) {
+        .bbc-1n4f7vm {
+            grid-template-columns: repeat(10, 1fr);
+            grid-column-end: span 10;
+            grid-column-start: 5;
+        }
+    }
+}
+
+.bbc-mhepzx {
+    display: block;
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 1rem;
+    color: #3F3F42;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-mhepzx {
+        font-size: 1.375rem;
+        line-height: 1.875rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-mhepzx {
+        font-size: 1.4375rem;
+        line-height: 2rem;
+    }
+}
+
+@media (min-width: 0rem) {
+    .bbc-mhepzx {
+        margin-left: 0.5rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    .bbc-mhepzx {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-mhepzx {
+        margin-left: 0;
+    }
+}
+
+.bbc-ekzrm2 {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.bbc-ekzrm2::-webkit-scrollbar {
+    display: none;
+}
+
+.bbc-1k00xvf {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+@media (min-width: 0rem) {
+    .bbc-1k00xvf {
+        margin-left: 0.5rem;
+    }
+
+    .bbc-1k00xvf:first-child {
+        margin-left: 0.5rem;
+    }
+
+    .bbc-1k00xvf:last-child {
+        margin-right: 0.5rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    .bbc-1k00xvf {
+        margin-left: 1rem;
+    }
+
+    .bbc-1k00xvf:first-child {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1k00xvf {
+        margin-left: 1rem;
+    }
+
+    .bbc-1k00xvf:first-child {
+        margin-left: 0;
+    }
+}
+
+.bbc-2e8h64 {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 0rem) {
+    .bbc-2e8h64 {
+        width: 14.8125rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-2e8h64 {
+        width: 11.125rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-2e8h64 {
+        width: 12.6875rem;
+    }
+}
+
+.bbc-cr4eaj {
+    position: static;
+    color: #222222;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    overflow-wrap: break-word;
+    display: inline-block;
+    font-size: 0.9375rem;
+    line-height: 1.4375rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    font-style: normal;
+    width: 100%;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    color: #202224;
+}
+
+.bbc-cr4eaj:before {
+    bottom: 0;
+    content: '';
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.bbc-cr4eaj:hover,
+.bbc-cr4eaj:focus {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+}
+
+.bbc-cr4eaj:visited {
+    color: #6E6E73;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-cr4eaj {
+        font-size: 0.9375rem;
+        line-height: 1.4375rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-cr4eaj {
+        font-size: 1.0625rem;
+        line-height: 1.5rem;
+    }
+}
+
+.bbc-cr4eaj:hover,
+.bbc-cr4eaj:focus {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+}
+
+.bbc-cr4eaj:visited {
+    color: #545658;
+}
+
+.bbc-1weq8sb {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #545658;
+    display: block;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-1weq8sb {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1weq8sb {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+.bbc-dltbep {
+    color: #141414;
+    font-size: 0.8125rem;
+    line-height: 1.625rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #545658;
+    margin-top: 0.5rem;
+    margin-inline: 0.5rem 0;
+    padding-inline: 0.5rem;
+    width: calc(100% - 0.5rem);
+    border-inline-start: 0.0625rem solid #6E6E73;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-dltbep {
+        font-size: 0.8125rem;
+        line-height: 1.625rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-dltbep {
+        font-size: 1.0625rem;
+        line-height: 1.875rem;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-dltbep {
+        width: calc(100% - 1rem);
+        margin-inline: 1rem 0;
+        padding-inline: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-dltbep {
+        width: 100%;
+        margin: 0.5rem 0 0;
+        padding-inline: 0.5rem 0;
+    }
+}
+
+.bbc-dltbep>span>p {
+    padding-bottom: 1.5rem;
+    margin: 0;
+}
+
+.bbc-dltbep>span>p:last-child {
+    padding-bottom: 0;
+}
+
+.bbc-6ux0rd {
+    font-size: 1.5625rem;
+    line-height: 2rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #141414;
+    padding: 0.5rem 0;
+    margin: calc(1.5rem - 0.5rem) 0;
+    scroll-margin-top: 1rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-6ux0rd {
+        font-size: 1.8125rem;
+        line-height: 2.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-6ux0rd {
+        font-size: 2.0625rem;
+        line-height: 3rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-6ux0rd {
+        margin-top: calc(2rem - 0.5rem);
+    }
+}
+
+.bbc-6ux0rd:focus-visible {
+    outline: 0.1875rem solid #000000;
+    box-shadow: 0 0 0 0.1875rem #FFFFFF;
+    outline-offset: 0.1875rem;
+}
+
+.bbc-n8oauk {
+    color: #222222;
+    border-bottom: 1px solid #B80000;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+.bbc-n8oauk:visited {
+    color: #6E6E73;
+    border-bottom: 1px solid #6E6E73;
+}
+
+.bbc-n8oauk:focus,
+.bbc-n8oauk:hover {
+    border-bottom: 2px solid #B80000;
+    color: #B80000;
+}
+
+.bbc-1l5nxv5 {
+    padding-bottom: 2.5rem;
+    margin: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+@media (min-width: 63rem) {
+    .bbc-1l5nxv5 {
+        margin: 2rem 0;
+        padding-bottom: 2rem;
+    }
+}
+
+.bbc-1f2ds04 {
+    position: relative;
+    z-index: 0;
+    color: #141414;
+    margin-top: 2rem;
+    margin-top: 0;
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1f2ds04 {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1f2ds04 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1f2ds04 {
+        margin-bottom: 1rem;
+    }
+}
+
+.bbc-1xclg2i {
+    margin: 0;
+    padding: 0;
+}
+
+.bbc-1fttcpj {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.bbc-127x8fy {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex-flow: row nowrap;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    min-height: 2.75rem;
+    -webkit-align-items: baseline;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-127x8fy {
+        -webkit-align-items: stretch;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+    }
+}
+
+.bbc-9svztz {
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: #F6F6F6;
+    margin: 1rem 0;
+    padding-right: 0.5rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-9svztz {
+        font-size: 1.375rem;
+        line-height: 1.875rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-9svztz {
+        font-size: 1.4375rem;
+        line-height: 2rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-9svztz {
+        margin: 0;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-9svztz {
+        padding-right: 1rem;
+    }
+}
+
+.bbc-1c01ksb {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: -0.5rem;
+    margin-bottom: 0;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.bbc-q3w86m {
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    word-break: break-word;
+    margin-top: 0.5rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-q3w86m {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-q3w86m {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+.bbc-q3w86m a {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    min-height: 2.75rem;
+    padding: 0.5rem 1rem;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    color: #222222;
+}
+
+.bbc-q3w86m a:hover,
+.bbc-q3w86m a:focus {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+}
+
+.bbc-q3w86m a:visited {
+    color: #6E6E73;
+}
+
+.bbc-tpioxw {
+    grid-column: 1/span 12;
+}
+
+@media (min-width: 63rem) {
+    .bbc-tpioxw {
+        grid-column: 9/span 4;
+        margin-top: 2rem;
+    }
+}
+
+.bbc-72c20u {
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 63rem) {
+    .bbc-72c20u {
+        display: block;
+        margin-bottom: 0.5rem;
+        padding: 1rem;
+    }
+}
+
+[amp-x-topStoriesExperiment="show_at_halfway"] .bbc-72c20u {
+    display: none;
+}
+
+@media (min-width: 63rem) {
+    [amp-x-topStoriesExperiment="show_at_halfway"] .bbc-72c20u {
+        display: block;
+        margin-bottom: 0.5rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 24.9375rem) {
+    .bbc-8cenrp {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    @media (max-width: 62.9375rem) {
+        .bbc-8cenrp {
             padding: 0 1rem;
         }
+    }
+}
 
-        @media (min-width: 20rem) and (max-width: 37.4375rem) {
-            .bbc-1ec4rn5 {
-                font-size: 0.75rem;
-                line-height: 1.25rem;
-            }
-        }
+.bbc-g47oqm {
+    position: relative;
+    z-index: 0;
+    color: #141414;
+    margin-top: 2rem;
+    margin-top: 0;
+}
 
-        @media (min-width: 37.5rem) {
-            .bbc-1ec4rn5 {
-                font-size: 1rem;
-                line-height: 1.375rem;
-            }
-        }
+@media (min-width: 37.5rem) {
+    .bbc-g47oqm {
+        margin-top: 1.5rem;
+    }
+}
 
-        @media (max-width: 24.9375rem) {
-            .bbc-1ec4rn5 {
-                padding: 0 0.5rem;
-            }
-        }
+@media (min-width: 63rem) {
+    .bbc-g47oqm {
+        margin-bottom: 1.5rem;
+    }
+}
 
-        .bbc-n6enek {
-            max-width: 63rem;
-            margin: 0 auto;
-            padding-top: 0.5rem;
-        }
+@media (min-width: 37.5rem) {
+    .bbc-g47oqm {
+        margin-top: 0;
+    }
+}
 
-        .bbc-18pquoo {
-            border-bottom: 0.0625rem solid #3F3F42;
-            -webkit-column-count: 4;
-            column-count: 4;
-            margin: 0;
-            list-style-type: none;
-            padding: 0 0 0.5rem;
-        }
+.bbc-lvnea5 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-        @supports (grid-template-columns: fit-content(200px)) {
-            .bbc-18pquoo {
-                display: grid;
-                grid-auto-flow: column;
-            }
-        }
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-lvnea5 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        gap: calc(1rem - 0.375rem);
+    }
+}
 
-        @media (max-width: 14.9375rem) {
-            .bbc-18pquoo {
-                grid-auto-flow: row;
-                -webkit-column-count: 1;
-                column-count: 1;
-            }
-        }
+.bbc-s6v87m {
+    height: 100%;
+    margin-bottom: 1rem;
+}
 
-        @media (min-width: 15rem) and (max-width: 37.4375rem) {
-            .bbc-18pquoo {
-                grid-column-gap: 0.5rem;
-                grid-template-columns: repeat(2, 1fr);
-                -webkit-column-count: 2;
-                column-count: 2;
-            }
-        }
+.bbc-s6v87m:last-child {
+    margin: 0;
+}
 
-        @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
-            .bbc-18pquoo {
-                grid-column-gap: 1rem;
-                grid-template-columns: repeat(3, 1fr);
-                -webkit-column-count: 3;
-                column-count: 3;
-            }
-        }
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-s6v87m {
+        height: inherit;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-basis: 0;
+        -ms-flex-preferred-size: 0;
+        flex-basis: 0;
+        margin: 0;
+    }
+}
 
-        @media (min-width: 63rem) and (max-width: 79.9375rem) {
-            .bbc-18pquoo {
-                grid-column-gap: 1rem;
-                grid-template-columns: repeat(4, 1fr);
-                -webkit-column-count: 4;
-                column-count: 4;
-            }
-        }
+.bbc-ey9z5j {
+    border: 0.1875rem solid transparent;
+    height: 100%;
+}
 
-        @media (min-width: 80rem) {
-            .bbc-18pquoo {
-                grid-column-gap: 1rem;
-                grid-template-columns: repeat(5, 1fr);
-                -webkit-column-count: 5;
-                column-count: 5;
-            }
+.bbc-70p486 {
+    position: relative;
+    background-color: #FFFFFF;
+    height: 100%;
+}
+
+.bbc-2xm90o {
+    padding: 0.5rem;
+}
+
+@media (min-width: 25rem) {
+    .bbc-2xm90o {
+        padding: 1rem 0.5rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-2xm90o {
+        padding: 1rem;
+    }
+}
+
+.bbc-1nc9jnp {
+    color: #141414;
+    margin: 0;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 0.9375rem;
+    line-height: 1.4375rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-1nc9jnp {
+        font-size: 0.9375rem;
+        line-height: 1.4375rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1nc9jnp {
+        font-size: 1.0625rem;
+        line-height: 1.5rem;
+    }
+}
+
+.bbc-154s5g9 {
+    position: static;
+    color: #222222;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    display: inline-block;
+}
+
+.bbc-154s5g9:hover,
+.bbc-154s5g9:focus {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    color: #eb2227;
+}
+
+.bbc-154s5g9:before {
+    bottom: 0;
+    content: '';
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.bbc-154s5g9:visited {
+    color: #6E6E73;
+}
+
+.bbc-1wir2uw {
+    color: #006666;
+    display: inline-block;
+    vertical-align: -0.125rem;
+    position: relative;
+    -webkit-margin-end: 0.25rem;
+    margin-inline-end: 0.25rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
+}
+
+@media (min-width: 25rem) {
+    .bbc-1wir2uw {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .bbc-1rjgwf9 {
+        -webkit-animation: animation-1lwo6e7 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s 3;
+        animation: animation-1lwo6e7 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s 3;
+    }
+}
+
+@-webkit-keyframes animation-1lwo6e7 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animation-1lwo6e7 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.bbc-67ssno {
+    color: #006666;
+    display: inline-block;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 700;
+    -webkit-margin-end: 0.5rem;
+    margin-inline-end: 0.5rem;
+}
+
+.bbc-a1j7gk {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #545658;
+    display: block;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-top: 0.5rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-a1j7gk {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-a1j7gk {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+.bbc-10pxgv6 {
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 63rem) {
+    .bbc-10pxgv6 {
+        margin-bottom: 0.5rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 24.9375rem) {
+    .bbc-6bz6fw {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 62.9375rem) {
+    .bbc-6bz6fw {
+        padding: 0 1rem;
+    }
+}
+
+.bbc-ofnqcj {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-ofnqcj {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        -webkit-column-gap: 1rem;
+        column-gap: 1rem;
+        row-gap: 1.5rem;
+    }
+}
+
+.bbc-1q5cdze {
+    padding: 0.5rem 0 1rem;
+    line-height: 0;
+    height: 100%;
+}
+
+.bbc-1q5cdze:last-child {
+    border: none;
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1q5cdze {
+        padding: 1rem 0 1rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1q5cdze {
+        padding: 0 0 1.5rem;
+    }
+}
+
+.bbc-1q5cdze:first-child {
+    padding-top: 0;
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1q5cdze:first-child {
+        padding-top: 1rem;
+    }
+}
+
+.bbc-1q5cdze:last-child {
+    padding-bottom: 0;
+}
+
+.bbc-1q5cdze:first-child {
+    padding: 0 0 0.5rem 0;
+}
+
+.bbc-1q5cdze:last-child {
+    padding: 0.5rem 0 0 0;
+}
+
+.bbc-1q5cdze:not(:first-child):not(:last-child) {
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1q5cdze {
+        padding: 0;
+    }
+
+    .bbc-1q5cdze:first-child,
+    .bbc-1q5cdze:last-child,
+    .bbc-1q5cdze:not(:first-child):not(:last-child) {
+        padding: 0;
+    }
+}
+
+.bbc-oz5u0n {
+    position: relative;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+.bbc-oz5u0n:hover a {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    color: #eb2227;
+}
+
+.bbc-oz5u0n:visited a {
+    color: #E6E8EA;
+}
+
+.bbc-18rv2kn {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+}
+
+.bbc-1bepigl {
+    position: relative;
+    height: 0;
+
+    -webkit-background-position: center center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: 60px 17px;
+    background-size: 60px 17px;
+    background-color: #3F3F42;
+}
+
+@media (min-width: 25rem) {
+    .bbc-1bepigl {
+        -webkit-background-size: 77px 22px;
+        background-size: 77px 22px;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1bepigl {
+        -webkit-background-size: 93px 27px;
+        background-size: 93px 27px;
+    }
+}
+
+.bbc-10klw3m {
+    height: 100%;
+}
+
+.bbc-7gzyga {
+    min-height: 100px;
+    padding-bottom: 1rem;
+    background-color: #202224;
+}
+
+.bbc-1uk1gs8 {
+    margin: 0;
+}
+
+.bbc-hmbapf {
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    line-height: 1.33;
+    display: inline-block;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    margin: 0.875rem 0.5rem 0 0.5rem;
+    color: #FFFFFF;
+}
+
+
+.bbc-hmbapf:focus {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+@media (min-width: 25rem) {
+    .bbc-hmbapf {
+        font-size: 1rem;
+        line-height: 1.25;
+        margin: 0.875rem 1rem 0 1rem;
+    }
+}
+
+.bbc-hmbapf:visited {
+    color: #E6E8EA;
+}
+
+.bbc-lkd68d {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #545658;
+    display: block;
+    font-family: "Noto Serif Bengali", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    padding: 0.75rem 0.5rem 0 0.5rem;
+    color: #E6E8EA;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-lkd68d {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-lkd68d {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    .bbc-lkd68d {
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem 0 1rem;
+    }
+}
+
+@media (max-width: 24.9375rem) {
+    .bbc-1pg0aej {
+        margin: 0 0.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    @media (max-width: 62.9375rem) {
+        .bbc-1pg0aej {
+            margin: 0 1rem;
+            padding-bottom: 2rem;
         }
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-1pg0aej {
+        margin: 0 1rem;
+        padding-bottom: 2.5rem;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-1pg0aej {
+        margin: 0 auto;
+        padding: 0 1rem 1.5rem;
+        max-width: 80rem;
+    }
+}
+
+.bbc-1rpw6bb {
+    position: relative;
+    z-index: 0;
+    color: #141414;
+    margin-top: 2rem;
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1rpw6bb {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 63rem) {
+    .bbc-1rpw6bb {
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-1rpw6bb {
+        margin-bottom: 1rem;
+    }
+}
+
+.bbc-lx5wvu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(5, auto);
+}
+
+@supports (display: grid) {
+    .bbc-lx5wvu {
+        display: grid;
+        position: initial;
+        width: initial;
+        margin: 0;
+    }
+
+    @media (max-width: 14.9375rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-gap: 0.5rem;
+        }
+    }
+
+    @media (min-width: 15rem) and (max-width: 24.9375rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-gap: 0.5rem;
+        }
+    }
+
+    @media (min-width: 25rem) and (max-width: 37.4375rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-gap: 0.5rem;
+        }
+    }
+
+    @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+            grid-column-gap: 1rem;
+        }
+    }
+
+    @media (min-width: 63rem) and (max-width: 79.9375rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(8, 1fr);
+            grid-column-end: span 8;
+            grid-column-gap: 1rem;
+        }
+    }
+
+    @media (min-width: 80rem) {
+        .bbc-lx5wvu {
+            grid-template-columns: repeat(20, 1fr);
+            grid-column-end: span 20;
+            grid-column-gap: 1rem;
+        }
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-lx5wvu {
+        grid-auto-flow: row;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-lx5wvu {
+        grid-template-rows: repeat(3, auto);
+    }
+}
+
+.bbc-jsrhcr {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-jsrhcr {
+        width: calc(100%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 24.9375rem) {
+    .bbc-jsrhcr {
+        width: calc(100%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-jsrhcr {
+        width: calc(100%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-jsrhcr {
+        width: calc(50%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-jsrhcr {
+        width: calc(50%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-jsrhcr {
+        width: calc(20%);
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+@supports (display: grid) {
+    .bbc-jsrhcr {
+        display: block;
+        width: initial;
+        margin: 0;
+    }
+
+    @media (max-width: 14.9375rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+        }
+    }
+
+    @media (min-width: 15rem) and (max-width: 24.9375rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+        }
+    }
+
+    @media (min-width: 25rem) and (max-width: 37.4375rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(6, 1fr);
+            grid-column-end: span 6;
+        }
+    }
+
+    @media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(3, 1fr);
+            grid-column-end: span 3;
+        }
+    }
+
+    @media (min-width: 63rem) and (max-width: 79.9375rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-end: span 4;
+        }
+    }
+
+    @media (min-width: 80rem) {
+        .bbc-jsrhcr {
+            grid-template-columns: repeat(4, 1fr);
+            grid-column-end: span 4;
+        }
+    }
+}
+
+.bbc-1is9yal {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-1mfcynm {
+        min-width: 1rem;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 24.9375rem) {
+    .bbc-1mfcynm {
+        min-width: 1rem;
+    }
+}
+
+@media (min-width: 25rem) and (max-width: 37.4375rem) {
+    .bbc-1mfcynm {
+        min-width: 1rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1mfcynm {
+        min-width: 1.5rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1mfcynm {
+        min-width: 1.5rem;
+    }
+}
+
+@supports (grid-template-columns: fit-content(200px)) {
+    @media (min-width: 37.5rem) {
+        .bbc-1mfcynm {
+            min-width: 1.5rem;
+        }
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-1mfcynm {
+        min-width: 1.5rem;
+    }
+}
+
+.bbc-uo8uve {
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    color: #B80000;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    line-height: 2.25rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-uo8uve {
+        font-size: 2.25rem;
+        line-height: 2.75rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-uo8uve {
+        font-size: 3.1875rem;
+        line-height: 3.75rem;
+    }
+}
+
+.bbc-14zb6im {
+    padding-top: 0.375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@supports (grid-template-columns: fit-content(200px)) {
+    .bbc-14zb6im {
+        padding-right: 0;
+    }
+}
+
+.bbc-hq7sa5 {
+    font-size: 0.9375rem;
+    line-height: 1.4375rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 700;
+    position: static;
+    color: #222222;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-hq7sa5 {
+        font-size: 0.9375rem;
+        line-height: 1.4375rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-hq7sa5 {
+        font-size: 1.0625rem;
+        line-height: 1.5rem;
+    }
+}
+
+.bbc-hq7sa5:hover,
+.bbc-hq7sa5:focus {
+    -webkit-text-decoration: underline;
+    text-decoration: underline;
+}
+
+.bbc-hq7sa5:before {
+    bottom: 0;
+    content: '';
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+@media (min-width: 25rem) {
+    .bbc-hq7sa5 {
+        font-size: 1.1875rem;
+        line-height: 1.75rem;
+    }
+
+    @media (min-width: 20rem) and (max-width: 37.4375rem) {
+        .bbc-hq7sa5 {
+            font-size: 1.25rem;
+            line-height: 1.875rem;
+        }
+    }
+
+    @media (min-width: 37.5rem) {
+        .bbc-hq7sa5 {
+            font-size: 1.3125rem;
+            line-height: 1.875rem;
+        }
+    }
+}
+
+.bbc-1lvqtkx {
+    content-visibility: auto;
+    contain-intrinsic-size: 33.125rem;
+}
+
+@media (min-width: 15rem) {
+    .bbc-1lvqtkx {
+        contain-intrinsic-size: 26.563rem;
+    }
+}
+
+@media (min-width: 20) {
+    .bbc-1lvqtkx {
+        contain-intrinsic-size: 23.438rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    .bbc-1lvqtkx {
+        contain-intrinsic-size: 21.875rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1lvqtkx {
+        contain-intrinsic-size: 17.188rem;
+    }
+}
+
+.bbc-5g7yny {
+    background-color: #B80000;
+    height: 2.75rem;
+    width: 100%;
+    padding: 0 0.5rem;
+    border-top: 0.0625rem solid transparent;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 15rem) {
+    .bbc-5g7yny {
+        height: 3.75rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (min-width: 25rem) {
+    .bbc-5g7yny {
+        height: 3.75rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-5g7yny {
+        height: 4rem;
+    }
+}
+
+.bbc-5g7yny svg {
+    fill: currentColor;
+}
+
+@media screen and (forced-colors: active) {
+    .bbc-5g7yny svg {
+        fill: linkText;
+    }
+}
+
+.bbc-1ec4rn5 {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #222222;
+    padding: 0 1rem;
+}
+
+@media (min-width: 20rem) and (max-width: 37.4375rem) {
+    .bbc-1ec4rn5 {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    .bbc-1ec4rn5 {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+}
+
+@media (max-width: 24.9375rem) {
+    .bbc-1ec4rn5 {
+        padding: 0 0.5rem;
+    }
+}
+
+.bbc-n6enek {
+    max-width: 63rem;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+}
+
+.bbc-18pquoo {
+    border-bottom: 0.0625rem solid #3F3F42;
+    -webkit-column-count: 4;
+    column-count: 4;
+    margin: 0;
+    list-style-type: none;
+    padding: 0 0 0.5rem;
+}
+
+@supports (grid-template-columns: fit-content(200px)) {
+    .bbc-18pquoo {
+        display: grid;
+        grid-auto-flow: column;
+    }
+}
+
+@media (max-width: 14.9375rem) {
+    .bbc-18pquoo {
+        grid-auto-flow: row;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 15rem) and (max-width: 37.4375rem) {
+    .bbc-18pquoo {
+        grid-column-gap: 0.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 37.5rem) and (max-width: 62.9375rem) {
+    .bbc-18pquoo {
+        grid-column-gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 63rem) and (max-width: 79.9375rem) {
+    .bbc-18pquoo {
+        grid-column-gap: 1rem;
+        grid-template-columns: repeat(4, 1fr);
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 80rem) {
+    .bbc-18pquoo {
+        grid-column-gap: 1rem;
+        grid-template-columns: repeat(5, 1fr);
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
 
 
 @media (max-width: 768px) {
     .bbc-1lmzg8c {
         height: 3rem !important;
     }
+}
+
+/* ==========================================================================
+   CKEditor 5 Content Styling (Ultimate Fix)
+   ========================================================================== */
+
+.ck-content {
+    word-break: break-word;
+}
+
+/* Base Image/Figure Styles */
+.ck-content .image {
+    display: table;
+    clear: both;
+    text-align: center;
+    margin: 1em auto;
+    max-width: 100%;
+}
+
+.ck-content .image img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto !important;
+    /* Forces aspect ratio compliance */
+}
+
+/* Image Resizing Support */
+.ck-content .image.image_resized {
+    max-width: 100%;
+    display: block;
+    box-sizing: border-box;
+}
+
+.ck-content .image.image_resized img {
+    /* Force image to follow container resizing */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.ck-content .image.image_resized>figcaption {
+    display: block;
+}
+
+/* Alignment Styles */
+.ck-content .image-style-side {
+    float: right;
+    margin-left: 1.5em;
+    max-width: 50%;
+}
+
+.ck-content .image-style-align-left {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.ck-content .image-style-align-right {
+    float: right;
+    margin-left: 1.5em;
+}
+
+.ck-content .image-style-align-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+}
+
+/* Figure Captions */
+.ck-content .image figcaption {
+    background-color: #f7f7f7;
+    caption-side: bottom;
+    color: #333;
+    display: table-caption;
+    font-size: 0.75em;
+    outline-offset: -1px;
+    padding: 0.6em;
+    word-break: break-word;
+}
+
+/* Tables */
+.ck-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+.ck-content table td,
+.ck-content table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Blockquotes */
+.ck-content blockquote {
+    border-left: 5px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    font-style: italic;
+    color: #555;
+}
+
+/* Responsive Scaling for Small Screens */
+@media (max-width: 768px) {
+
+    .ck-content .image.image-style-side,
+    .ck-content .image-style-align-left,
+    .ck-content .image-style-align-right {
+        float: none !important;
+        margin: 1.5em 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        /* Force full width on mobile */
+    }
+
+    .ck-content table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* News Content Wrapper Reset (Fixes forced bolding from .bbc-12k5sdr) */
+.ck-content.bbc-12k5sdr,
+.ck-content .bbc-12k5sdr,
+.ck-content p,
+.ck-content div,
+.ck-content span,
+.ck-content li {
+    font-weight: 400 !important;
+    font-size: 0.875rem;
+    line-height: 1.75rem;
+}
+
+.ck-content b,
+.ck-content strong {
+    font-weight: 700 !important;
 }

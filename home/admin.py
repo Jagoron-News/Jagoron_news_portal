@@ -76,7 +76,7 @@ class NewsAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_at'
     fieldsets = (
         ('Content', {
-            'fields': ('section', 'sub_section', 'category', 'tags', 'top_sub_title', 'title', 'sub_title', 'sub_content', 'news_content')
+            'fields': ('section', 'sub_section', 'category', 'tags', 'top_sub_title', 'title', 'sub_title', 'sub_content', 'news_content', 'pdf_file', 'pdf_title')
         }),
         ('Images', {
             'fields': ('heading_image', 'heading_image_title', 'main_image', 'main_image_title')
@@ -333,8 +333,11 @@ class AuthorRoleAdmin(admin.ModelAdmin):
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ("name", "category", "is_active")
-    list_filter = ("category", "is_active")
+    list_display = ("name", "category", "role", "position", "is_active")
+    list_editable = ("position",)
+    list_filter = ("category", "role", "is_active")
     search_fields = ("name",)
     prepopulated_fields = {"slug": ("name",)}
+    ordering = ("position", "name")
+
 

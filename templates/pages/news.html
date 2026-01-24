@@ -1627,6 +1627,46 @@ a.focusIndicatorReducedWidthInverted:focus-visible {
         display: flex !important;
     }
 }
+
+/* ===== MOBILE PAGINATION FIX ===== */
+@media (max-width: 576px) {
+
+    /* SHOW page numbers on mobile */
+    .bbc-1xa4jcw {
+        display: flex !important;
+        justify-content: center;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 6px 0;
+        scrollbar-width: none;
+    }
+
+    .bbc-1xa4jcw::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* HIDE summary text (optional) */
+    .bbc-a3s25o {
+        display: none !important;
+    }
+
+    /* Smaller buttons */
+    .bbc-1u3fgrg,
+    .bbc-tto26q,
+    .bbc-jgaja7 {
+        width: 2.2rem;
+        height: 2.2rem;
+        line-height: 2.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* Active page highlight */
+    .bbc-gtjcdn {
+        border-bottom-width: 3px;
+    }
+}
+
 </style>
 
 {% comment %} Tag-only filtering (when no section is selected) {% endcomment %}

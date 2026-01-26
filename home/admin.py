@@ -341,3 +341,18 @@ class AuthorAdmin(admin.ModelAdmin):
     ordering = ("position", "name")
 
 
+@admin.register(BannerImage)
+class BannerImageAdmin(admin.ModelAdmin):
+    list_display = ['title', 'section', 'position', 'is_active', 'created_at']
+    list_filter = ['is_active', 'section', 'created_at']
+    search_fields = ['title', 'section__title']
+    list_editable = ['position', 'is_active']
+    
+    fieldsets = (
+        ('Banner Information', {
+            'fields': ('title', 'image', 'section')
+        }),
+        ('Display Settings', {
+            'fields': ('position', 'is_active')
+        }),
+    )

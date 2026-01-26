@@ -40,7 +40,37 @@ class NavbarItem(models.Model):
 
     def __str__(self):
         return self.title
-    
+
+class BannerImage(models.Model):
+    title = models.CharField(max_length=200, help_text="Banner title for admin reference")
+    image = models.ImageField(
+        upload_to="banners/",
+        help_text="Upload banner image"
+    )
+    section = models.ForeignKey(
+        NavbarItem,
+        on_delete=models.CASCADE,
+        help_text="Section to redirect when banner is clicked"
+    )
+    position = models.IntegerField(
+        default=0,
+        help_text="Order of banner (lower number appears first)"
+    )
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['position', '-created_at']
+        verbose_name = "Banner Image"
+        verbose_name_plural = "Banner Images"
+
+    def __str__(self):
+        return f"{self.title} - {self.section.title}"
+
+    def get_redirect_url(self):
+        """Get the URL to redirect to when banner is clicked"""
+        return self.section.get_absolute_url()
+
 class SubSection(models.Model):
     section = models.ForeignKey(NavbarItem, on_delete=models.CASCADE, blank=True, null=True)
     title = models.CharField(max_length=100, blank=True, null=True)

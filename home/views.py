@@ -49,6 +49,8 @@ def robots_txt_view(request):
 def home(request):
     navbar = NavbarItem.objects.filter(is_active=True)
 
+    banners = BannerImage.objects.filter(is_active=True).select_related('section')
+
     # Get all active special news titles
     special_titles = SpecialNewTitle.objects.filter(is_active=True)
 
@@ -177,7 +179,8 @@ def home(request):
         'video_post': video_post,
         'todays_most_viewed_news': [view.news for view in todays_most_viewed_news],
         'current_url': current_url,
-        'special_news_data': special_news_data
+        'special_news_data': special_news_data,
+        'banners': banners
     }
 
     # Add live_news only if it's the same as last_news

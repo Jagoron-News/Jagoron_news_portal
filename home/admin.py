@@ -71,6 +71,9 @@ admin.site.register(Tag)
 admin.site.register(NewsView)
 
 class NewsAdmin(admin.ModelAdmin):
+    # 👇 ADD THIS LINE - Search by title
+    search_fields = ['title', 'sub_title', 'reporter']
+    
     list_display = ('title', 'get_views', 'get_publish_status', 'created_by', 'created_at', 'scheduled_publish_at', 'updated_by', 'updated_at')
     list_filter = ('scheduled_publish_at', 'created_at', 'created_by')
     date_hierarchy = 'created_at'

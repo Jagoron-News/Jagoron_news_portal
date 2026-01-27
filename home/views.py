@@ -214,6 +214,11 @@ def news_page_by_slug(request, section_slug, subsection_slug=None):
     if section_slug in excluded_paths:
         raise Http404("Section not found")
     
+    # 👇 NEW: Check if it's a default page first
+    default_page = Default_pages.objects.filter(slug=section_slug).first()
+    if default_page:
+        return default_page_detail(request, section_slug)
+    
     navbar = NavbarItem.objects.all()
     page = request.GET.get('page', 1)
     tag_slug = request.GET.get('tag')

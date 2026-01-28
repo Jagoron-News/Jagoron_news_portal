@@ -325,8 +325,8 @@
                 {% for page in default_pages %}
                 {% if page.link and page.link == 'editorialguidelines' %}
 
-                <a style="font-weight: 800; color: aliceblue;" href="{% url 'default_page_detail' page.link %}">{{
-                    page.title }}</a>
+                <a style="font-weight: 800; color: aliceblue;" href="{% url 'default_page_detail' page.link %}">
+                    {{page.title }}</a>
 
                 {% endif %}
                 {% endfor %}

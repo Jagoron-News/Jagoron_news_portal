@@ -47,8 +47,8 @@ urlpatterns = [
 
     path('jag-admin/', admin.site.urls),
     path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
-    path('', include('home.urls')),
     path('', include('account.urls')),
+    path('', include('home.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

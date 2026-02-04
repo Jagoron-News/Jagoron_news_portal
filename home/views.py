@@ -1373,16 +1373,27 @@ def dashboard_content_stats(request):
 def react_to_news(request, news_id):
     if request.method == "POST":
         reaction = request.POST.get('reaction')
-        news = News.objects.get(id=news_id)
+        try:
+            news = News.objects.get(id=news_id)
+        except News.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'News not found'}, status=404)
 
         # Prevent multiple reactions per user per news
-        existing = NewsReaction.objects.filter(news=news, user=request.user)
-        if existing.exists():
-            existing.update(reaction=reaction)
+        # Only track uniqueness for authenticated users
+        if request.user.is_authenticated:
+            existing = NewsReaction.objects.filter(news=news, user=request.user)
+            if existing.exists():
+                existing.update(reaction=reaction)
+            else:
+                NewsReaction.objects.create(news=news, user=request.user, reaction=reaction)
         else:
-            NewsReaction.objects.create(news=news, user=request.user, reaction=reaction)
+            # For anonymous users, we allow multiple reactions or we could use session_key
+            # But the simplest is to just create it for now to avoid the multi-user overwrite bug
+            NewsReaction.objects.create(news=news, user=None, reaction=reaction)
 
         return JsonResponse({'status': 'ok'})
+    
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
 
 
 def authors_list(request):

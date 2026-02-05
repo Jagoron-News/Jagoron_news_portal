@@ -10,6 +10,8 @@ from urllib.parse import urlparse, parse_qs
 import random
 import string
 from django.utils.text import slugify
+from django.core.files.base import ContentFile
+import io
 
 # Create your models here.
 class NavbarItem(models.Model):
@@ -287,6 +289,10 @@ class News(models.Model):
             heading_image_uploaded = bool(self.heading_image and getattr(self.heading_image, 'name', None))
             main_image_uploaded = bool(self.main_image and getattr(self.main_image, 'name', None))
         
+        # ✅ Convert to WebP BEFORE Django uploads to CDN
+        self._convert_field_to_webp_before_save("heading_image")
+        self._convert_field_to_webp_before_save("main_image")
+
         super().save(*args, **kwargs)
         
         save_needed = False
@@ -294,55 +300,26 @@ class News(models.Model):
         try:
             # Only process heading_image if a new one was uploaded
             if heading_image_uploaded and self.heading_image:
-                try:
-                    # Safely check if file exists and is accessible
-                    if self.heading_image and hasattr(self.heading_image, 'path'):
-                        try:
-                            image_path = self.heading_image.path
-                            if os.path.exists(image_path):
-                                new_path = self.convert_to_webp(self.heading_image)
-                                if new_path:
-                                    self.heading_image.name = new_path
-                                    save_needed = True
-                            else:
-                                # File doesn't exist, skip processing
-                                logger.warning(f"Heading image file not found: {image_path}")
-                        except (ValueError, OSError, FileNotFoundError) as path_error:
-                            # File path is invalid or file doesn't exist
-                            logger.warning(f"Cannot access heading_image path: {path_error}")
-                            # Don't process if file doesn't exist
-                except (ValueError, AttributeError, OSError, FileNotFoundError) as e:
-                    # If path doesn't exist or file wasn't uploaded, skip processing
-                    logger.debug(f"Skipping heading_image processing: {e}")
+                new_image = self.convert_to_webp(self.heading_image)
+                if new_image:
+                    # Update the field with the new ContentFile
+                    self.heading_image.save(new_image.name, new_image, save=False)
+                    save_needed = True
 
             # Only process main_image if a new one was uploaded
             if main_image_uploaded and self.main_image:
-                try:
-                    # Safely check if file exists and is accessible
-                    if self.main_image and hasattr(self.main_image, 'path'):
-                        try:
-                            image_path = self.main_image.path
-                            if os.path.exists(image_path):
-                                new_path = self.convert_to_webp(self.main_image)
-                                if new_path:
-                                    self.main_image.name = new_path
-                                    save_needed = True
-                            else:
-                                # File doesn't exist, skip processing
-                                logger.warning(f"Main image file not found: {image_path}")
-                        except (ValueError, OSError, FileNotFoundError) as path_error:
-                            # File path is invalid or file doesn't exist
-                            logger.warning(f"Cannot access main_image path: {path_error}")
-                            # Don't process if file doesn't exist
-                except (ValueError, AttributeError, OSError, FileNotFoundError) as e:
-                    # If path doesn't exist or file wasn't uploaded, skip processing
-                    logger.debug(f"Skipping main_image processing: {e}")
+                new_image = self.convert_to_webp(self.main_image)
+                if new_image:
+                    # Update the field with the new ContentFile
+                    self.main_image.save(new_image.name, new_image, save=False)
+                    save_needed = True
 
             if save_needed:
                 super().save(*args, **kwargs)
 
         except Exception as e:
             logger.error(f"Error processing images for News ID {self.id}: {e}")
+
 
         # try:
         #     if self.heading_image:
@@ -362,94 +339,74 @@ class News(models.Model):
 
     def convert_to_webp(self, image_field):
         try:
-            # Safely get the image path
-            if not hasattr(image_field, 'path'):
+            if not image_field:
                 return None
             
-            image_path = image_field.path
-            if not os.path.exists(image_path):
-                logger.warning(f"Image file not found for conversion: {image_path}")
-                return None
-            
-            img = Image.open(image_path)
+            # Open the image using PIL
+            img = Image.open(image_field)
 
             if img.mode != 'RGB':
                 img = img.convert('RGB')
 
-            # max_size = (600, 600)
-            max_size = (1200, 800) # 🆕 Example: Increased Max Size
+            max_size = (1200, 800)
             img.thumbnail(max_size, Image.Resampling.LANCZOS)
 
-            base, ext = os.path.splitext(image_path)
-            webp_path = base + '.webp'
+            # Save to a bytes buffer
+            buffer = io.BytesIO()
+            img.save(buffer, 'WEBP', quality=90, optimize=True)
+            buffer.seek(0)
 
-            # img.save(webp_path, 'WEBP', quality=70, optimize=True)
-            img.save(webp_path, 'WEBP', quality=90, optimize=True) # <- INCREASED QUALITY
+            # Generate new filename
+            name = os.path.basename(image_field.name)
+            base, _ = os.path.splitext(name)
+            new_filename = f"{base}.webp"
 
-            if os.path.exists(image_path):
-                os.remove(image_path)
-
-            relative_path = image_field.name
-            relative_base, _ = os.path.splitext(relative_path)
-            return relative_base + '.webp'
+            # Create a ContentFile for Django storage
+            return ContentFile(buffer.read(), name=new_filename)
 
         except Exception as e:
             logger.error(f"Error converting image to WebP: {e}")
             return None
 
-    def compress_and_resize_image(self, image_path):
+    def _convert_field_to_webp_before_save(self, field_name):
+        field = getattr(self, field_name)
+
+        if not field:
+            return
+
+        if field.name.lower().endswith(".webp"):
+            return
+
         try:
-            with Image.open(image_path) as img:
-                original_format = img.format
-                
-                if img.mode != 'RGB':
-                    img = img.convert('RGB')
+            img = Image.open(field)
 
-                # max_size = (600, 600)
-                max_size = (1280, 720)
-                img.thumbnail(max_size, Image.Resampling.LANCZOS)
+            if img.mode != "RGB":
+                img = img.convert("RGB")
 
-                quality = 70
-                min_quality = 30
-                max_file_size = 50 * 1024
+            img.thumbnail((1200, 800), Image.Resampling.LANCZOS)
 
-                while True:
-                    temp_path = image_path + '.temp'
-                    img.save(
-                        temp_path, 
-                        format=original_format, 
-                        quality=quality, 
-                        optimize=True
-                    )
-                    
-                    file_size = os.path.getsize(temp_path)
-                    
-                    if file_size <= max_file_size or quality <= min_quality:
-                        os.replace(temp_path, image_path)
-                        break
+            buffer = io.BytesIO()
+            img.save(buffer, "WEBP", quality=90, optimize=True)
+            buffer.seek(0)
 
-                    quality -= 5
+            base = os.path.splitext(field.name)[0]
+            new_name = f"{base}.webp"
 
-                logger.info(f"Image compressed: {image_path}, Final quality: {quality}")
+            field.file = ContentFile(buffer.read(), name=new_name)
+            field.name = new_name
 
         except Exception as e:
-            logger.error(f"Error compressing image {image_path}: {e}")
+            logger.error(f"WebP conversion failed: {e}")
+
 
     def delete(self, *args, **kwargs):
-
+        # Django's storage API handles file deletion if configured, 
+        # but let's manually ensure files are cleaned up from R2/local
         if self.heading_image:
-            try:
-                if os.path.isfile(self.heading_image.path):
-                    os.remove(self.heading_image.path)
-            except Exception as e:
-                logger.error(f"Error deleting heading image: {e}")
+            self.heading_image.delete(save=False)
 
         if self.main_image:
-            try:
-                if os.path.isfile(self.main_image.path):
-                    os.remove(self.main_image.path)
-            except Exception as e:
-                logger.error(f"Error deleting main image: {e}")
+            self.main_image.delete(save=False)
 
         super().delete(*args, **kwargs)
 

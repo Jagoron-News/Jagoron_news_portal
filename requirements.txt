@@ -14,3 +14,6 @@ soupsieve==2.6
 sqlparse==0.5.2
 typing_extensions==4.12.2
 whitenoise==6.11.0
+django-storages==1.14.6
+boto3==1.42.35
+django-ckeditor-5==0.2.19

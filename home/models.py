@@ -1028,3 +1028,39 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ElectionScoreboard(models.Model):
+    """Live election scoreboard for homepage"""
+    title = models.CharField(max_length=200, default="নির্বাচনী স্কোরবোর্ড", help_text="Scoreboard title")
+    
+    # Party 1
+    party1_name = models.CharField(max_length=100, default="বিএনপি জোট", help_text="Party 1 name")
+    party1_logo = models.ImageField(upload_to="election/", blank=True, null=True, help_text="Party 1 logo")
+    party1_score = models.IntegerField(default=0, help_text="Party 1 score/seats")
+    
+    # Party 2
+    party2_name = models.CharField(max_length=100, default="জামায়াত জোট", help_text="Party 2 name")
+    party2_logo = models.ImageField(upload_to="election/", blank=True, null=True, help_text="Party 2 logo")
+    party2_score = models.IntegerField(default=0, help_text="Party 2 score/seats")
+    
+    is_live = models.BooleanField(default=True, help_text="Show LIVE indicator")
+    is_active = models.BooleanField(default=True, help_text="Show scoreboard on homepage")
+    
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Election Scoreboard"
+        verbose_name_plural = "Election Scoreboards"
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"{self.title} ({self.party1_name} vs {self.party2_name})"
+
+    def save(self, *args, **kwargs):
+        # Ensure only one active scoreboard
+        if self.is_active:
+            ElectionScoreboard.objects.exclude(pk=self.pk).update(is_active=False)
+        super().save(*args, **kwargs)
+

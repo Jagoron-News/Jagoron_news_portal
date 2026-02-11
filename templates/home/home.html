@@ -8,81 +8,154 @@
 
 {% block body %}
 
+<!-- BANNER SECTION - Isolated from hero section -->
+{% if banners %}
+<div class="banner-outer-wrapper">
+    <div class="bbc-1tzeti0">
+        <section class="banner-section" id="banner-section">
+            {% for banner in banners %}
+            <a href="{{ banner.get_redirect_url }}" title="{{ banner.title }}" class="banner-link">
+                <img src="{{ banner.image.url }}" alt="{{ banner.title }}" class="banner-image">
+            </a>
+            {% endfor %}
+        </section>
+    </div>
+</div>
+{% endif %}
 
-<div class="bbc-q944gg">
-               {% comment %} <section aria-label="বিজ্ঞাপন" aria-hidden="true" role="region" data-e2e="advertisement"
-                    class="bbc-13j0x7y">
-                    <div id="dotcom-leaderboard" class="dotcom-ad"></div>
-                </section>  {% endcomment %}
-                <main role="main" class="bbc-18yqr0l">
-                    <h1 id="content" tabindex="-1" class="bbc-m04vo2"><span role="text"><span lang="en-GB">Jagoron
-                                News</span>, <!-- -->মূলপাতা</span></h1>
-                   
-        <!-- BANNER SECTION -->
-        {% if banners %}
-        <div class="bbc-1tzeti0 banner-wrapper-spacing">
-            <div class="bbc-1ajedpd">
-                <section class="banner-section">
-                    {% for banner in banners %}
-                    <a href="{{ banner.get_redirect_url }}" title="{{ banner.title }}" class="banner-link">
-                        <img src="{{ banner.image.url }}" 
-                             alt="{{ banner.title }}" 
-                             class="banner-image">
-                    </a>
-                    {% endfor %}
-                </section>
+<!-- ELECTION SCOREBOARD -->
+{% if scoreboard %}
+<div class="scoreboard-outer-wrapper">
+    <div class="bbc-1tzeti0">
+        <div class="scoreboard-container" id="election-scoreboard">
+            <!-- LIVE Badge + Title Row -->
+            <div class="scoreboard-header">
+                {% if scoreboard.is_live %}
+                <div class="scoreboard-live-badge">
+                    <span class="live-dot"></span>
+                    <span class="live-text">LIVE</span>
+                </div>
+                {% endif %}
+                <div class="scoreboard-title">{{ scoreboard.title }}</div>
+            </div>
+
+            <!-- Score Display -->
+            <div class="scoreboard-content">
+                <!-- Party 1 -->
+                <div class="scoreboard-party party-left">
+                    <div class="party-logo-wrapper">
+                        {% if scoreboard.party1_logo %}
+                        <img src="{{ scoreboard.party1_logo.url }}" alt="{{ scoreboard.party1_name }}"
+                            class="party-logo-img">
+                        {% else %}
+                        <svg class="party-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#f59e0b" stroke-width="2"
+                                fill="rgba(245,158,11,0.1)" />
+                            <path d="M24 8 L26 18 L36 18 L28 24 L31 34 L24 28 L17 34 L20 24 L12 18 L22 18 Z"
+                                fill="#f59e0b" />
+                        </svg>
+                        {% endif %}
+                    </div>
+                    <div class="party-name">{{ scoreboard.party1_name }}</div>
+                    <div class="party-score">{{ scoreboard.party1_score }}</div>
+                </div>
+
+                <!-- Divider -->
+                <div class="scoreboard-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-vs">VS</div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Party 2 -->
+                <div class="scoreboard-party party-right">
+                    <div class="party-logo-wrapper">
+                        {% if scoreboard.party2_logo %}
+                        <img src="{{ scoreboard.party2_logo.url }}" alt="{{ scoreboard.party2_name }}"
+                            class="party-logo-img">
+                        {% else %}
+                        <svg class="party-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#10b981" stroke-width="2"
+                                fill="rgba(16,185,129,0.1)" />
+                            <path d="M16 32 L24 12 L32 32 M19 26 L29 26" stroke="#10b981" stroke-width="3"
+                                stroke-linecap="round" fill="none" />
+                        </svg>
+                        {% endif %}
+                    </div>
+                    <div class="party-name">{{ scoreboard.party2_name }}</div>
+                    <div class="party-score">{{ scoreboard.party2_score }}</div>
+                </div>
             </div>
         </div>
-        {% endif %}
-                    <div class="bbc-1tzeti0">
-                        <div class="bbc-1ajedpd">
-
-
-                       {% include 'home/hero.html' %}     
-                         {% include 'home/max_reading_news_for_a_day.html' %}
-
-                       {% include 'home/elected_news.html' %}     
-                       {% include 'home/news_section.html' %}     
-                       {% include 'home/max_reading_news.html' %}     
-
-
-
+    </div>
 </div>
-</div>
-</main>
+{% endif %}
+
+<!-- HERO + CONTENT SECTION -->
+<div class="bbc-q944gg">
+    <main role="main" class="bbc-18yqr0l">
+        <h1 id="content" tabindex="-1" class="bbc-m04vo2"><span role="text"><span lang="en-GB">Jagoron
+                    News</span>, <!-- -->মূলপাতা</span></h1>
+
+        <div class="bbc-1tzeti0">
+            <div class="bbc-1ajedpd">
+
+
+                {% include 'home/hero.html' %}
+                {% include 'home/max_reading_news_for_a_day.html' %}
+
+                {% include 'home/elected_news.html' %}
+                {% include 'home/news_section.html' %}
+                {% include 'home/max_reading_news.html' %}
+
+
+
+            </div>
+        </div>
+    </main>
 </div>
 
 
-    
+
 
 <style>
     @media (min-width: 0px) and (max-width: 411px) {
-    .bbc-bjn8wh {
-        position: relative;
-        display: flex !important;
+        .bbc-bjn8wh {
+            position: relative;
+            display: flex !important;
+        }
     }
-}
+
+    /* ===== Banner Outer Wrapper - Separate stacking context ===== */
+    .banner-outer-wrapper {
+        position: relative;
+        z-index: 10;
+        display: block;
+        width: 100%;
+        background: #fff;
+        padding: 0 0.5rem;
+        margin-top: 16px;
+    }
+
+    @media (min-width: 25rem) {
+        .banner-outer-wrapper {
+            padding: 0 1rem;
+        }
+    }
+
     /* Banner Styles - Match Navbar Width */
     .banner-section {
         width: 100%;
-        margin: 16px 0 24px 0; /* Top margin added */
+        margin: 16px 0 0 0;
         padding: 0;
     }
-    
-    .banner-wrapper {
-        max-width: 1280px; /* Match your navbar max-width */
-        margin: 0 auto;
-        padding: 0 16px; /* Same padding as navbar */
+
+    .banner-link {
         display: block;
+        position: relative;
+        z-index: 11;
     }
-    
-    .banner-item {
-        width: 100%;
-        display: block;
-        margin: 0;
-        padding: 0;
-    }
-    
+
     .banner-image {
         width: 100%;
         height: auto;
@@ -93,47 +166,320 @@
         transition: opacity 0.3s ease;
         border-radius: 0;
     }
-    
+
     .banner-image:hover {
         opacity: 0.9;
     }
-    
+
     /* Responsive */
     @media (min-width: 1024px) {
-        .banner-wrapper {
-            padding: 0 24px; /* More padding on larger screens */
+        .banner-outer-wrapper {
+            padding: 0 1rem;
         }
-        
+
         .banner-image {
             max-height: 200px;
         }
     }
-    
+
     @media (max-width: 768px) {
         .banner-section {
-            margin: 12px 0 16px 0;
+            margin: 12px 0 0 0;
         }
-        
-        .banner-wrapper {
-            padding: 0 12px;
-        }
-        
+
         .banner-image {
             max-height: 140px;
         }
     }
-    
+
     @media (max-width: 480px) {
         .banner-section {
-            margin: 8px 0 12px 0;
+            margin: 8px 0 0 0;
         }
-        
-        .banner-wrapper {
-            padding: 0 8px;
-        }
-        
+
         .banner-image {
             max-height: 100px;
+        }
+    }
+
+    /* ===== ELECTION SCOREBOARD STYLES ===== */
+    .scoreboard-outer-wrapper {
+        position: relative;
+        z-index: 9;
+        display: block;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    @media (min-width: 25rem) {
+        .scoreboard-outer-wrapper {
+            padding: 0 1rem;
+        }
+    }
+
+    .scoreboard-container {
+        position: relative;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border-radius: 12px;
+        padding: 20px 24px 18px;
+        margin: 12px 0 0 0;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        overflow: hidden;
+    }
+
+    .scoreboard-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #f59e0b, #ef4444, #10b981);
+    }
+
+    /* Header Row (LIVE + Title) */
+    .scoreboard-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        position: relative;
+    }
+
+    /* LIVE Badge */
+    .scoreboard-live-badge {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.4);
+        border-radius: 20px;
+        padding: 3px 12px 3px 8px;
+    }
+
+    .live-dot {
+        width: 8px;
+        height: 8px;
+        background: #ef4444;
+        border-radius: 50%;
+        display: inline-block;
+        animation: livePulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+
+        0%,
+        100% {
+            opacity: 1;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+        }
+
+        50% {
+            opacity: 0.6;
+            box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+        }
+    }
+
+    .live-text {
+        font-size: 11px;
+        font-weight: 800;
+        color: #ef4444;
+        letter-spacing: 1.5px;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    /* Title */
+    .scoreboard-title {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 18px;
+        font-weight: 600;
+        font-family: "Noto Serif Bengali", serif;
+        letter-spacing: 0.5px;
+    }
+
+    /* Content Row */
+    .scoreboard-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    /* Party Card */
+    .scoreboard-party {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        padding: 10px 16px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        backdrop-filter: blur(4px);
+        transition: background 0.3s ease;
+    }
+
+    .scoreboard-party:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .party-left {
+        flex-direction: row;
+    }
+
+    .party-right {
+        flex-direction: row-reverse;
+    }
+
+    /* Logo */
+    .party-logo-wrapper {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .party-logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    .party-logo-svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    /* Party Name */
+    .party-name {
+        font-family: "Noto Serif Bengali", serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+        flex: 1;
+    }
+
+    .party-right .party-name {
+        text-align: right;
+    }
+
+    /* Score */
+    .party-score {
+        font-size: 50px;
+        font-weight: 800;
+        color: #f59e0b;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        line-height: 1;
+        text-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+        min-width: 40px;
+        text-align: center;
+    }
+
+    .party-right .party-score {
+        color: #10b981;
+        text-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Divider */
+    .scoreboard-divider {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+        padding: 0 4px;
+    }
+
+    .divider-line {
+        width: 1px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .divider-vs {
+        font-size: 11px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        letter-spacing: 1px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .scoreboard-container {
+            padding: 16px 14px 14px;
+            border-radius: 10px;
+            margin: 10px 0 0 0;
+        }
+
+        .scoreboard-content {
+            gap: 8px;
+        }
+
+        .scoreboard-party {
+            padding: 8px 10px;
+            gap: 8px;
+            flex-direction: column !important;
+            text-align: center;
+        }
+
+        .party-right .party-name {
+            text-align: center;
+        }
+
+        .party-logo-wrapper {
+            width: 36px;
+            height: 36px;
+        }
+
+        .party-logo-svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .party-name {
+            font-size: 12px;
+        }
+
+        .party-score {
+            font-size: 26px;
+        }
+
+        .scoreboard-title {
+            font-size: 12px;
+            margin-bottom: 0px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .scoreboard-party {
+            padding: 6px 8px;
+            gap: 6px;
+        }
+
+        .party-logo-wrapper {
+            width: 30px;
+            height: 30px;
+        }
+
+        .party-name {
+            font-size: 11px;
+        }
+
+        .party-score {
+            font-size: 22px;
         }
     }
 </style>

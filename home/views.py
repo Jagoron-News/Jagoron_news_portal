@@ -180,7 +180,8 @@ def home(request):
         'todays_most_viewed_news': [view.news for view in todays_most_viewed_news],
         'current_url': current_url,
         'special_news_data': special_news_data,
-        'banners': banners
+        'banners': banners,
+        'scoreboard': ElectionScoreboard.objects.filter(is_active=True).first(),
     }
 
     # Add live_news only if it's the same as last_news

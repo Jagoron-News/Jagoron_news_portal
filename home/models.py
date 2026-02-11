@@ -1044,6 +1044,11 @@ class ElectionScoreboard(models.Model):
     party2_logo = models.ImageField(upload_to="election/", blank=True, null=True, help_text="Party 2 logo")
     party2_score = models.IntegerField(default=0, help_text="Party 2 score/seats")
     
+    # Party 3 - Other
+    party3_name = models.CharField(max_length=100, default="অন্যান্য", help_text="Party 3 name")
+    party3_logo = models.ImageField(upload_to="election/", blank=True, null=True, help_text="Party 3 logo")
+    party3_score = models.IntegerField(default=0, help_text="Party 3 score/seats")
+
     is_live = models.BooleanField(default=True, help_text="Show LIVE indicator")
     is_active = models.BooleanField(default=True, help_text="Show scoreboard on homepage")
     
@@ -1056,7 +1061,7 @@ class ElectionScoreboard(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f"{self.title} ({self.party1_name} vs {self.party2_name})"
+        return f"{self.title} ({self.party1_name} vs {self.party2_name} vs {self.party3_name})"
 
     def save(self, *args, **kwargs):
         # Ensure only one active scoreboard

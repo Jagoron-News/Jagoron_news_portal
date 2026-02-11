@@ -63,7 +63,7 @@
                 <!-- Divider -->
                 <div class="scoreboard-divider">
                     <div class="divider-line"></div>
-                    <div class="divider-vs">VS</div>
+                    <div class="divider-vs">|</div>
                     <div class="divider-line"></div>
                 </div>
 
@@ -84,6 +84,31 @@
                     </div>
                     <div class="party-name">{{ scoreboard.party2_name }}</div>
                     <div class="party-score">{{ scoreboard.party2_score }}</div>
+                </div>
+
+                <!-- Divider -->
+                <div class="scoreboard-divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-vs">|</div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Others -->
+                <div class="scoreboard-party party-others">
+                    <div class="party-logo-wrapper">
+                        {% if scoreboard.party3_logo %}
+                        <img src="{{ scoreboard.party3_logo.url }}" alt="{{ scoreboard.party3_name }}"
+                            class="party-logo-img">
+                        {% else %}
+                        <svg class="party-logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="22" stroke="#8b5cf6" stroke-width="2"
+                                fill="rgba(139, 92, 246, 0.1)" />
+                            <path d="M12 24 H36 M24 12 V36" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                        {% endif %}
+                    </div>
+                    <div class="party-name">{{ scoreboard.party3_name }}</div>
+                    <div class="party-score">{{ scoreboard.party3_score }}</div>
                 </div>
             </div>
         </div>
@@ -332,7 +357,7 @@
     }
 
     .party-right {
-        flex-direction: row-reverse;
+        flex-direction: row;
     }
 
     /* Logo */
@@ -372,7 +397,7 @@
     }
 
     .party-right .party-name {
-        text-align: right;
+        text-align: left;
     }
 
     /* Score */
@@ -390,6 +415,11 @@
     .party-right .party-score {
         color: #10b981;
         text-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    }
+
+    .party-others .party-score {
+        color: #8b5cf6;
+        text-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
     }
 
     /* Divider */

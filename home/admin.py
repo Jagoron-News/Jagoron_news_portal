@@ -363,8 +363,8 @@ class BannerImageAdmin(admin.ModelAdmin):
 
 @admin.register(ElectionScoreboard)
 class ElectionScoreboardAdmin(admin.ModelAdmin):
-    list_display = ('title', 'party1_name', 'party1_score', 'party2_name', 'party2_score', 'is_live', 'is_active', 'updated_at')
-    list_editable = ('party1_score', 'party2_score', 'is_live', 'is_active')
+    list_display = ('title', 'party1_name', 'party1_score', 'party2_name', 'party2_score', 'party3_name', 'party3_score', 'is_live', 'is_active', 'updated_at')
+    list_editable = ('party1_score', 'party2_score', 'party3_score', 'is_live', 'is_active')
     
     fieldsets = (
         ('Scoreboard Settings', {
@@ -375,5 +375,8 @@ class ElectionScoreboardAdmin(admin.ModelAdmin):
         }),
         ('Party 2 - জামায়াত জোট', {
             'fields': ('party2_name', 'party2_logo', 'party2_score'),
+        }),
+        ('Party 3 - অন্যান্য', {
+            'fields': ('party3_name', 'party3_logo', 'party3_score'),
         }),
     )

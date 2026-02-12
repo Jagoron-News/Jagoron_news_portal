@@ -1,0 +1,1750 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Election Scoreboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg1: #061a2b;
+            --bg2: #071022;
+            --glass: rgba(255, 255, 255, .08);
+            --glass2: rgba(255, 255, 255, .06);
+            --stroke: rgba(255, 255, 255, .14);
+            --text: rgba(255, 255, 255, .92);
+            --muted: rgba(255, 255, 255, .65);
+
+            --bnp: #ffb400;
+            --jamaat: #00d38a;
+            --others: #8a5cff;
+
+            --shadow: 0 30px 80px rgba(0, 0, 0, .45);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: "Noto Sans Bengali", system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        }
+
+        body {
+            color: var(--text);
+            overflow: hidden;
+            background:
+                radial-gradient(1200px 800px at 20% 15%, rgba(0, 191, 255, .18), transparent 55%),
+                radial-gradient(900px 700px at 80% 20%, rgba(138, 92, 255, .16), transparent 50%),
+                radial-gradient(1100px 900px at 60% 85%, rgba(0, 211, 138, .12), transparent 55%),
+                linear-gradient(160deg, var(--bg1), var(--bg2));
+        }
+
+        .stage {
+            height: 100vh;
+            display: grid;
+            grid-template-rows: 88px 1fr 74px;
+            padding: 18px 22px;
+            gap: 14px;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .stage:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+            background-size: 42px 42px;
+            opacity: .18;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .stage:after {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background: repeating-linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0) 0px,
+                    rgba(0, 0, 0, 0) 6px,
+                    rgba(0, 0, 0, .14) 7px);
+            opacity: .20;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            animation: scan 7.5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateY(-2%)
+            }
+
+            100% {
+                transform: translateY(2%)
+            }
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .06));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topbar .beam {
+            position: absolute;
+            inset: -40%;
+            background: radial-gradient(closest-side, rgba(255, 255, 255, .22), transparent 60%);
+            transform: translateX(-30%) rotate(10deg);
+            animation: beam 6s ease-in-out infinite;
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        @keyframes beam {
+            0% {
+                transform: translateX(-35%) rotate(10deg)
+            }
+
+            50% {
+                transform: translateX(25%) rotate(10deg)
+            }
+
+            100% {
+                transform: translateX(-35%) rotate(10deg)
+            }
+        }
+
+        .left,
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 260px;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+        }
+
+        .title {
+            font-weight: 800;
+            letter-spacing: .4px;
+            font-size: 20px;
+            text-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+        }
+
+        .livePill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 80, 80, .45);
+            background: rgba(255, 60, 60, .10);
+            font-weight: 800;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff3b3b;
+            box-shadow: 0 0 0 rgba(255, 59, 59, .6);
+            animation: pulse 1.4s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 59, 59, .55)
+            }
+
+            70% {
+                box-shadow: 0 0 0 14px rgba(255, 59, 59, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 59, 59, 0)
+            }
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.2;
+        }
+
+        .meta strong {
+            color: var(--text)
+        }
+
+        .signal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        .bars {
+            display: flex;
+            gap: 3px;
+            align-items: flex-end;
+            height: 16px;
+        }
+
+        .bars span {
+            width: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, .55);
+            animation: bars 1.2s ease-in-out infinite;
+            opacity: .9;
+        }
+
+        .bars span:nth-child(1) {
+            height: 6px;
+            animation-delay: .0s
+        }
+
+        .bars span:nth-child(2) {
+            height: 10px;
+            animation-delay: .1s
+        }
+
+        .bars span:nth-child(3) {
+            height: 14px;
+            animation-delay: .2s
+        }
+
+        .bars span:nth-child(4) {
+            height: 9px;
+            animation-delay: .3s
+        }
+
+        @keyframes bars {
+
+            0%,
+            100% {
+                transform: scaleY(.7);
+                opacity: .6
+            }
+
+            50% {
+                transform: scaleY(1.15);
+                opacity: 1
+            }
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            align-items: stretch;
+        }
+
+        .card {
+            position: relative;
+            border-radius: calc(var(--radius) + 6px);
+            border: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .06));
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            overflow: hidden;
+            padding: 18px 18px 16px;
+            transform-style: preserve-3d;
+            transition: transform .18s ease, border-color .18s ease;
+            min-height: 340px;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, .22);
+            transform: translateY(-3px);
+        }
+
+        .card:before {
+            content: "";
+            position: absolute;
+            inset: -60%;
+            background: conic-gradient(from 180deg, transparent, rgba(255, 255, 255, .14), transparent 30%);
+            animation: sweep 5.6s linear infinite;
+            opacity: .55;
+            pointer-events: none;
+        }
+
+        @keyframes sweep {
+            0% {
+                transform: rotate(0deg)
+            }
+
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+
+        .card:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .10), inset 0 0 40px rgba(255, 255, 255, .06);
+            pointer-events: none;
+        }
+
+        .cardHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, .16);
+            border: 1px solid rgba(255, 255, 255, .14);
+        }
+
+        .logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .name {
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 1.15;
+        }
+
+        .sub {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .accent {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .15);
+            opacity: .95;
+        }
+
+        .scoreWrap {
+            margin-top: 18px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .score {
+            font-size: 74px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1;
+            text-shadow: 0 18px 50px rgba(0, 0, 0, .45);
+        }
+
+        .unit {
+            color: var(--muted);
+            font-size: 14px;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+        }
+
+        .mini {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mini .box {
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(0, 0, 0, .16);
+            border-radius: 16px;
+            padding: 12px 12px;
+        }
+
+        .mini .k {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .mini .v {
+            font-weight: 800;
+            font-size: 16px;
+            margin-top: 3px
+        }
+
+        .bnp .accent {
+            background: var(--bnp)
+        }
+
+        .jamaat .accent {
+            background: var(--jamaat)
+        }
+
+        .others .accent {
+            background: var(--others)
+        }
+
+        .bnp .score {
+            color: rgba(255, 200, 80, .96)
+        }
+
+        .jamaat .score {
+            color: rgba(60, 255, 195, .92)
+        }
+
+        .others .score {
+            color: rgba(180, 140, 255, .92)
+        }
+
+        .ticker {
+            border: 1px solid var(--stroke);
+            background: linear-gradient(180deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .06));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tickerLabel {
+            flex: 0 0 auto;
+            padding: 14px 16px;
+            font-weight: 900;
+            letter-spacing: .8px;
+            background: rgba(0, 0, 0, .22);
+            border-right: 1px solid rgba(255, 255, 255, .10);
+        }
+
+        .tickerTrack {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .tickerText {
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+            padding-left: 100%;
+            animation: marquee 22s linear infinite;
+            color: rgba(255, 255, 255, .86);
+            font-weight: 700;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0)
+            }
+
+            100% {
+                transform: translateX(-100%)
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+
+            .left,
+            .right {
+                min-width: auto
+            }
+
+            .card {
+                min-height: 280px
+            }
+
+            .score {
+                font-size: 64px
+            }
+        }
+
+        .subline {
+            margin-top: 6px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, .60);
+            letter-spacing: .2px;
+        }
+
+        .pulseDots::after {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            text-align: left;
+            animation: dots 1.2s steps(3, end) infinite;
+        }
+
+        @keyframes dots {
+            0% {
+                content: ""
+            }
+
+            33% {
+                content: "."
+            }
+
+            66% {
+                content: ".."
+            }
+
+            100% {
+                content: "..."
+            }
+        }
+
+        /* new centered layout */
+        .cardInner {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            padding: 22px;
+        }
+
+        .logoSide {
+            flex: 0 0 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partyLogo {
+            width: 92px;
+            height: 92px;
+            border-radius: 18px;
+            object-fit: contain;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            background: rgba(0, 0, 0, .18);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+        }
+
+        /* center content in the whole box */
+        .contentCenter {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+        }
+
+        .partyName {
+            font-weight: 900;
+            font-size: 42px;
+            letter-spacing: .6px;
+            margin-bottom: 10px;
+            text-shadow: 0 12px 40px rgba(0, 0, 0, .35);
+        }
+
+        .bnp .partyName {
+            color: #ffb400;
+            /* Golden Yellow */
+        }
+
+        .jamaat .partyName {
+            color: #00d38a;
+            /* Emerald Green */
+        }
+
+        .others .partyName {
+            color: #8a5cff;
+            /* Purple */
+        }
+
+
+        /* cardInner row gap দূর করে center রাখার জন্য */
+        .cardInner {
+            padding: 22px;
+        }
+
+        /* logo partyName এর উপরে */
+        .topLogo {
+            width: 74px;
+            height: 74px;
+            object-fit: contain;
+            /* LOGO কাটবে না */
+            border-radius: 18px;
+            padding: 10px;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .14);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, .35);
+            display: block;
+            /* JS onload এ show করবে */
+        }
+
+
+        /* bigger vote number */
+        .voteNumber {
+            font-weight: 950;
+            font-size: 140px;
+            line-height: 1;
+            letter-spacing: 1px;
+            text-shadow: 0 18px 70px rgba(0, 0, 0, .45);
+        }
+
+        .voteUnit {
+            margin-top: 8px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, .55);
+        }
+
+        /* keep mini boxes centered */
+        .miniCenter {
+            margin-top: 22px;
+            width: min(560px, 92%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        /* reuse your existing .box styles; just ensure text is centered */
+        .miniCenter .box {
+            text-align: left;
+        }
+
+        .miniCenter .v {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .statusRow{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:10px;
+  min-height:28px;
+}
+
+.statusLogo{
+  width: 110px;
+  height: 28px;
+  border-radius: 10px;
+  object-fit: contain;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  display:none; /* default hidden until set */
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="stage" id="stage">
+        <div class="topbar">
+            <div class="beam"></div>
+
+            <div class="left">
+                <div class="livePill"><span class="dot"></span> LIVE</div>
+                <div class="meta">
+                    <div><strong id="location">ঢাকা</strong> • <span id="clock">--:--</span></div>
+                    <div>Live Election Scoring</div>
+                </div>
+            </div>
+
+            <div class="center">
+                <div class="title">নির্বাচনী স্কোরবোর্ড</div>
+            </div>
+
+            <div class="right">
+                <div class="signal">
+                    <!-- <div class="meta" style="text-align:right">
+                        <div><strong id="status">ডেটা আপডেট হচ্ছে</strong></div>
+                        <div id="updatedAt">Last: --</div>
+                    </div> -->
+                    <div class="meta" style="text-align:right">
+                        <!-- ✅ show logo instead of "সংযোগ সমস্যা" -->
+                        <div class="statusRow">
+                            <img id="statusLogo" class="statusLogo" src="" alt="Status Logo" />
+                        </div>
+                    </div>
+                    <!-- <div class="bars" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+
+            <!-- BNP -->
+            <!-- <div class="card bnp" data-tilt>
+                <div class="cardInner">
+                    <div class="logoSide">
+                        <img id="logoBnp" class="partyLogo" src="" alt="BNP Logo">
+                    </div>
+
+                    <div class="contentCenter">
+                        <div class="partyName">বিএনপি</div>
+                        <div class="voteNumber" id="scoreBnp">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="card bnp" data-tilt>
+                <div class="cardInner">
+                    <div class="contentCenter">
+                        <img id="logoBnp" class="partyLogo topLogo" src="" alt="BNP Logo">
+
+                        <div class="partyName">বিএনপি</div>
+                        <div class="voteNumber" id="scoreBnp">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Jamaat -->
+            <!-- <div class="card jamaat" data-tilt>
+                <div class="cardInner">
+                    <div class="logoSide">
+                        <img id="logoJamaat" class="partyLogo" src="" alt="Jamaat Logo">
+                    </div>
+
+                    <div class="contentCenter">
+                        <div class="partyName">জামায়াত</div>
+                        <div class="voteNumber" id="scoreJamaat">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="card jamaat" data-tilt>
+                <div class="cardInner">
+                    <div class="contentCenter">
+                        <img id="logoJamaat" class="partyLogo topLogo" src="" alt="Jamaat Logo">
+
+                        <div class="partyName">জামায়াত</div>
+                        <div class="voteNumber" id="scoreJamaat">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Others -->
+            <!-- <div class="card others" data-tilt>
+                <div class="cardInner">
+                    <div class="logoSide">
+                        <img id="logoOthers" class="partyLogo" src="" alt="Others Logo">
+                    </div>
+
+                    <div class="contentCenter">
+                        <div class="partyName">অন্যান্য</div>
+                        <div class="voteNumber" id="scoreOthers">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="card others" data-tilt>
+                <div class="cardInner">
+                    <div class="contentCenter">
+                        <img id="logoOthers" class="partyLogo topLogo" src="" alt="Others Logo">
+
+                        <div class="partyName">অন্যান্য</div>
+                        <div class="voteNumber" id="scoreOthers">0</div>
+                        <div class="voteUnit">VOTES</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="ticker">
+        <div class="tickerLabel">UPDATES</div>
+        <div class="tickerTrack">
+            <div class="tickerText" id="tickerText">
+                সর্বশেষ আপডেট: ভোট গণনা চলছে • কেন্দ্র থেকে কেন্দ্রভিত্তিক ফল আসতে শুরু করেছে • লাইভ স্কোরবোর্ড
+                আপডেট হচ্ছে •
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script>
+    function pad(n){ return String(n).padStart(2,"0"); }
+    function updateClock(){
+      const d = new Date();
+      document.getElementById("clock").textContent =
+        `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    function animateNumber(el, to, duration=700){
+      const from = Number(el.dataset.value || el.textContent.replace(/,/g,'') || 0);
+      const start = performance.now();
+      const diff = to - from;
+
+      function step(t){
+        const p = Math.min(1, (t - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = Math.round(from + diff * eased);
+        el.textContent = val.toLocaleString("en-US");
+        if(p < 1) requestAnimationFrame(step);
+        else el.dataset.value = String(to);
+      }
+      requestAnimationFrame(step);
+    }
+
+    let last = { bnp:0, jamaat:0, others:0 };
+
+    function setTrend(id, delta){
+      const el = document.getElementById(id);
+      if(delta > 0) el.textContent = "▲ Up";
+      else if(delta < 0) el.textContent = "▼ Down";
+      else el.textContent = "— Stable";
+    }
+
+    function updateScores(payload){
+      const bnpEl = document.getElementById("scoreBnp");
+      const jamEl = document.getElementById("scoreJamaat");
+      const othEl = document.getElementById("scoreOthers");
+
+      const db = payload.bnp - last.bnp;
+      const dj = payload.jamaat - last.jamaat;
+      const dox = payload.others - last.others;
+
+      animateNumber(bnpEl, payload.bnp);
+      animateNumber(jamEl, payload.jamaat);
+      animateNumber(othEl, payload.others);
+
+      document.getElementById("chgBnp").textContent = (db>=0?"+":"") + db.toLocaleString("en-US");
+      document.getElementById("chgJamaat").textContent = (dj>=0?"+":"") + dj.toLocaleString("en-US");
+      document.getElementById("chgOthers").textContent = (dox>=0?"+":"") + dox.toLocaleString("en-US");
+
+      setTrend("trBnp", db);
+      setTrend("trJamaat", dj);
+      setTrend("trOthers", dox);
+
+      last = {...payload};
+
+      const now = new Date();
+      document.getElementById("updatedAt").textContent =
+        `Last: ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+    }
+
+    const API_URL = "{% url 'election_scoreboard_api' %}";
+
+    async function fetchScores(){
+      try{
+        const res = await fetch(API_URL, { cache: "no-store" });
+        if(!res.ok) throw new Error("Fetch failed");
+        const data = await res.json();
+
+        document.getElementById("location").textContent = data.location || "ঢাকা";
+        document.getElementById("tickerText").textContent = data.ticker || "";
+        document.getElementById("status").textContent = "ডেটা আপডেটেড";
+
+        updateScores({
+          bnp: Number(data.bnp || 0),
+          jamaat: Number(data.jamaat || 0),
+          others: Number(data.others || 0),
+        });
+
+      }catch(e){
+        document.getElementById("status").textContent = "সংযোগ সমস্যা";
+      }
+    }
+
+    fetchScores();
+    setInterval(fetchScores, 2000);
+
+    document.querySelectorAll("[data-tilt]").forEach(card=>{
+      card.addEventListener("mousemove", (e)=>{
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform =
+          `translateY(-3px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg)`;
+      });
+      card.addEventListener("mouseleave", ()=>{
+        card.style.transform = "";
+      });
+    });
+  </script> -->
+    <!-- <script>
+  // Clock
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function updateClock(){
+    const d = new Date();
+    document.getElementById("clock").textContent =
+      `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+  }
+  setInterval(updateClock, 1000); updateClock();
+
+  // ---------- Broadcast animation engine ----------
+  const state = {
+    real:   { bnp: 0, jamaat: 0, others: 0 },
+    shown:  { bnp: 0, jamaat: 0, others: 0 },
+    raf:    { bnp: null, jamaat: null, others: null },
+  };
+
+  function fmt(n){ return Number(n || 0).toLocaleString("en-US"); }
+
+  function setTrend(id, delta){
+    const el = document.getElementById(id);
+    if(delta > 0) el.textContent = "▲ Up";
+    else if(delta < 0) el.textContent = "▼ Down";
+    else el.textContent = "— Stable";
+  }
+
+  /**
+   * Animate number with "TV broadcast" feel:
+   * - Moves towards target
+   * - Optional micro-wiggle while moving
+   * - Ends EXACTLY at target (important)
+   */
+  function animateBroadcast(key, el, target, options = {}){
+    const {
+      duration = 900,
+      wiggle = true,
+      wiggleMax = 6,        // max +/- wiggle
+      settleTime = 220      // last ms: settle to exact value
+    } = options;
+
+    // cancel previous animation for that key
+    if(state.raf[key]) cancelAnimationFrame(state.raf[key]);
+
+    const startVal = state.shown[key];
+    const endVal = Number(target || 0);
+    const start = performance.now();
+
+    function step(t){
+      const elapsed = t - start;
+      const p = Math.min(1, elapsed / duration);
+
+      // smooth easing
+      const eased = 1 - Math.pow(1 - p, 3);
+
+      // base interpolated value
+      let val = startVal + (endVal - startVal) * eased;
+
+      // add micro wiggle while moving (NOT at the end)
+      const remaining = duration - elapsed;
+      if (wiggle && remaining > settleTime && Math.abs(endVal - startVal) > 0){
+        // wiggle amplitude becomes smaller as it gets closer
+        const amp = Math.min(wiggleMax, Math.max(1, Math.abs(endVal - val) * 0.02));
+        val += (Math.random() * 2 - 1) * amp;
+      }
+
+      // IMPORTANT: last part always snaps to real target
+      if (p >= 1){
+        val = endVal;
+      }
+
+      // Clamp and render
+      val = Math.round(val);
+      state.shown[key] = val;
+      el.textContent = fmt(val);
+
+      if(p < 1){
+        state.raf[key] = requestAnimationFrame(step);
+      }else{
+        state.raf[key] = null;
+      }
+    }
+
+    state.raf[key] = requestAnimationFrame(step);
+  }
+
+  function updateUIFromReal(real){
+    // compute true changes based on REAL values
+    const db = real.bnp - state.real.bnp;
+    const dj = real.jamaat - state.real.jamaat;
+    const dox = real.others - state.real.others;
+
+    // animate display toward real values (wiggly while moving)
+    animateBroadcast("bnp", document.getElementById("scoreBnp"), real.bnp, { duration: 950, wiggle: true });
+    animateBroadcast("jamaat", document.getElementById("scoreJamaat"), real.jamaat, { duration: 950, wiggle: true });
+    animateBroadcast("others", document.getElementById("scoreOthers"), real.others, { duration: 950, wiggle: true });
+
+    // show REAL delta (truth)
+    document.getElementById("chgBnp").textContent = (db>=0?"+":"") + fmt(db);
+    document.getElementById("chgJamaat").textContent = (dj>=0?"+":"") + fmt(dj);
+    document.getElementById("chgOthers").textContent = (dox>=0?"+":"") + fmt(dox);
+
+    setTrend("trBnp", db);
+    setTrend("trJamaat", dj);
+    setTrend("trOthers", dox);
+
+    // store latest REAL values
+    state.real = { ...real };
+
+    // update last-updated time on screen
+    const now = new Date();
+    document.getElementById("updatedAt").textContent =
+      `Last: ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  }
+
+  // ---------- Fetch from Django ----------
+  const API_URL = "{% url 'election_scoreboard_api' %}";
+
+  async function fetchScores(){
+    try{
+      const res = await fetch(API_URL, { cache: "no-store" });
+      if(!res.ok) throw new Error("Fetch failed");
+      const data = await res.json();
+
+      document.getElementById("location").textContent = data.location || "ঢাকা";
+      document.getElementById("tickerText").textContent = data.ticker || "";
+      document.getElementById("status").textContent = "ডেটা আপডেটেড";
+
+      updateUIFromReal({
+        bnp: Number(data.bnp || 0),
+        jamaat: Number(data.jamaat || 0),
+        others: Number(data.others || 0),
+      });
+
+    }catch(e){
+      document.getElementById("status").textContent = "সংযোগ সমস্যা";
+    }
+  }
+
+  // first load
+  fetchScores();
+  // poll every 2 seconds
+  setInterval(fetchScores, 2000);
+
+  // ---------- Tilt effect ----------
+  document.querySelectorAll("[data-tilt]").forEach(card=>{
+    card.addEventListener("mousemove", (e)=>{
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform =
+        `translateY(-3px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg)`;
+    });
+    card.addEventListener("mouseleave", ()=>{
+      card.style.transform = "";
+    });
+  });
+</script> -->
+
+    <script>
+
+        let lastReal = { bnp: 0, jamaat: 0, others: 0 };
+        let initialized = false;
+
+
+        function updateChangeAndTrend(real) {
+            // On first load: show 0 change (no previous reference)
+            if (!initialized) {
+                document.getElementById("chgBnp").textContent = "+0";
+                document.getElementById("chgJamaat").textContent = "+0";
+                document.getElementById("chgOthers").textContent = "+0";
+
+                setTrend("trBnp", 0);
+                setTrend("trJamaat", 0);
+                setTrend("trOthers", 0);
+
+                lastReal = { ...real };
+                initialized = true;
+                return;
+            }
+
+            const db = real.bnp - lastReal.bnp;
+            const dj = real.jamaat - lastReal.jamaat;
+            const dox = real.others - lastReal.others;
+
+            // Change numbers
+            document.getElementById("chgBnp").textContent = (db >= 0 ? "+" : "") + db.toLocaleString("en-US");
+            document.getElementById("chgJamaat").textContent = (dj >= 0 ? "+" : "") + dj.toLocaleString("en-US");
+            document.getElementById("chgOthers").textContent = (dox >= 0 ? "+" : "") + dox.toLocaleString("en-US");
+
+            // Trend text
+            setTrend("trBnp", db);
+            setTrend("trJamaat", dj);
+            setTrend("trOthers", dox);
+
+            // Save snapshot
+            lastReal = { ...real };
+        }
+
+
+        // Clock
+        function pad(n) { return String(n).padStart(2, "0"); }
+        function updateClock() {
+            const d = new Date();
+            document.getElementById("clock").textContent =
+                `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+        }
+        setInterval(updateClock, 1000); updateClock();
+
+        // -------- State --------
+        const state = {
+            real: { bnp: 0, jamaat: 0, others: 0 },   // exact admin values
+            base: { bnp: 0, jamaat: 0, others: 0 },   // animated-to base (ends at real)
+            shown: { bnp: 0, jamaat: 0, others: 0 },   // what user sees (base + wiggle)
+            raf: { bnp: null, jamaat: null, others: null },
+            wiggleTimer: null,
+            animating: { bnp: false, jamaat: false, others: false }
+        };
+
+        function fmt(n) { return Number(n || 0).toLocaleString("en-US"); }
+
+        function setTrend(id, delta) {
+            const el = document.getElementById(id);
+            if (delta > 0) el.textContent = "▲ Up";
+            else if (delta < 0) el.textContent = "▼ Down";
+            else el.textContent = "— Stable";
+        }
+
+        function setLiveMiniText(prefixId, realDelta) {
+            // prefixId example: "Bnp" -> uses liveChgBnp, liveTrBnp
+            const liveChg = document.getElementById("liveChg" + prefixId);
+            const liveTr = document.getElementById("liveTr" + prefixId);
+
+            // Always show truth if realDelta != 0
+            if (realDelta !== 0) {
+                liveChg.textContent = "Live: synced";
+                liveTr.textContent = realDelta > 0 ? "Momentum: strong" : "Momentum: falling";
+                return;
+            }
+
+            // If stable, show small live variation (visual only)
+            const jitter = Math.floor((Math.random() * 5) - 2); // -2..+2
+            if (jitter > 0) liveChg.textContent = `Live: +${jitter}`;
+            else if (jitter < 0) liveChg.textContent = `Live: ${jitter}`;
+            else liveChg.textContent = "Live: 0";
+
+            // Trend “monitoring” with rotating labels
+            const labels = ["Monitoring", "Tracking", "Updating"];
+            const label = labels[Math.floor(Math.random() * labels.length)];
+            liveTr.textContent = label + "…";
+        }
+
+
+        // -------- Smooth animate base toward real --------
+        function animateBase(key, el, target, duration = 900) {
+            if (state.raf[key]) cancelAnimationFrame(state.raf[key]);
+
+            const startVal = state.base[key];
+            const endVal = Number(target || 0);
+            const start = performance.now();
+            state.animating[key] = true;
+
+            function step(t) {
+                const p = Math.min(1, (t - start) / duration);
+                const eased = 1 - Math.pow(1 - p, 3);
+                const val = Math.round(startVal + (endVal - startVal) * eased);
+
+                state.base[key] = val;
+
+                // while animating, shown is driven by base (wiggle applied separately)
+                // We'll update shown from wiggle loop; but keep it close here too:
+                if (!state.wiggleTimer) {
+                    state.shown[key] = val;
+                    el.textContent = fmt(val);
+                }
+
+                if (p < 1) {
+                    state.raf[key] = requestAnimationFrame(step);
+                } else {
+                    state.raf[key] = null;
+                    state.animating[key] = false;
+                }
+            }
+
+            state.raf[key] = requestAnimationFrame(step);
+        }
+
+        // -------- Continuous wiggle loop (runs forever) --------
+        // It updates ONLY the display value, never the base/real.
+        // It always keeps jitter small, and regularly snaps back toward base.
+        function startContinuousWiggle() {
+            if (state.wiggleTimer) return;
+
+            const bnpEl = document.getElementById("scoreBnp");
+            const jamEl = document.getElementById("scoreJamaat");
+            const othEl = document.getElementById("scoreOthers");
+
+            // tweak these for stronger/weaker effect
+            const WIGGLE_MAX = 1;         // +/- range
+            const INTERVAL_MS = 1600;      // how often it wiggles
+            const SNAP_PROB = 0.78;       // chance to snap closer to base each tick (stability)
+
+            state.wiggleTimer = setInterval(() => {
+                // helper: compute a jittered shown value around base
+                function jitter(key) {
+                    const base = state.base[key];
+
+                    // sometimes snap closer (keeps it truthful)
+                    if (Math.random() < SNAP_PROB) {
+                        state.shown[key] = base;
+                        return base;
+                    }
+
+                    // jitter size depends on base size (optional)
+                    const max = Math.min(WIGGLE_MAX, Math.max(2, Math.round(base * 0.00015)));
+                    const offset = Math.round((Math.random() * 2 - 1) * max);
+
+                    // show base + offset
+                    return base + offset;
+                }
+
+                const b = jitter("bnp");
+                const j = jitter("jamaat");
+                const o = jitter("others");
+
+                state.shown.bnp = b;
+                state.shown.jamaat = j;
+                state.shown.others = o;
+
+                // render
+                bnpEl.textContent = fmt(b);
+                jamEl.textContent = fmt(j);
+                othEl.textContent = fmt(o);
+
+            }, INTERVAL_MS);
+        }
+
+        // -------- Update UI based on REAL admin values --------
+        function applyRealUpdate(real) {
+            // compute deltas (truth)
+            const db = real.bnp - state.real.bnp;
+            const dj = real.jamaat - state.real.jamaat;
+            const dox = real.others - state.real.others;
+
+            document.getElementById("chgBnp").textContent = (db >= 0 ? "+" : "") + fmt(db);
+            document.getElementById("chgJamaat").textContent = (dj >= 0 ? "+" : "") + fmt(dj);
+            document.getElementById("chgOthers").textContent = (dox >= 0 ? "+" : "") + fmt(dox);
+
+            setTrend("trBnp", db);
+            setTrend("trJamaat", dj);
+            setTrend("trOthers", dox);
+
+            // animate base toward real (so when admin changes it looks smooth)
+            animateBase("bnp", document.getElementById("scoreBnp"), real.bnp, 950);
+            animateBase("jamaat", document.getElementById("scoreJamaat"), real.jamaat, 950);
+            animateBase("others", document.getElementById("scoreOthers"), real.others, 950);
+
+            // store real
+            state.real = { ...real };
+
+            const now = new Date();
+            document.getElementById("updatedAt").textContent =
+                `Last: ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+        }
+
+        // -------- Fetch from Django --------
+        const API_URL = "{% url 'election_scoreboard_api' %}";
+
+        // async function fetchScores() {
+        //     try {
+        //         const res = await fetch(API_URL, { cache: "no-store" });
+        //         if (!res.ok) throw new Error("Fetch failed");
+        //         const data = await res.json();
+
+        //         document.getElementById("logoBnp").src = data.bnp_logo || "";
+        //         document.getElementById("logoJamaat").src = data.jamaat_logo || "";
+        //         document.getElementById("logoOthers").src = data.others_logo || "";
+
+
+        //         document.getElementById("location").textContent = data.location || "ঢাকা";
+        //         document.getElementById("tickerText").textContent = data.ticker || "";
+        //         document.getElementById("status").textContent = "ডেটা আপডেটেড";
+
+        //         // initial bootstrap (first fetch)
+        //         const incoming = {
+        //             bnp: Number(data.bnp || 0),
+        //             jamaat: Number(data.jamaat || 0),
+        //             others: Number(data.others || 0),
+        //         };
+
+        //         // If first time, set base immediately so wiggle starts nicely
+        //         if (state.real.bnp === 0 && state.real.jamaat === 0 && state.real.others === 0
+        //             && state.base.bnp === 0 && state.base.jamaat === 0 && state.base.others === 0) {
+        //             state.real = { ...incoming };
+        //             state.base = { ...incoming };
+        //             state.shown = { ...incoming };
+        //             document.getElementById("scoreBnp").textContent = fmt(incoming.bnp);
+        //             document.getElementById("scoreJamaat").textContent = fmt(incoming.jamaat);
+        //             document.getElementById("scoreOthers").textContent = fmt(incoming.others);
+        //         } else {
+        //             // normal update
+        //             applyRealUpdate(incoming);
+        //         }
+
+        //     } catch (e) {
+        //         document.getElementById("status").textContent = "সংযোগ সমস্যা";
+        //     }
+        // }
+
+        //         async function fetchScores() {
+        //   try {
+        //     const res = await fetch(API_URL, { cache: "no-store" });
+        //     if (!res.ok) throw new Error("Fetch failed");
+        //     const data = await res.json();
+
+        //     // ✅ Make logo URL absolute (handles /media/... properly)
+        //     const toAbsUrl = (u) => {
+        //       if (!u) return "";
+        //       if (/^https?:\/\//i.test(u)) return u;
+        //       return window.location.origin + u;
+        //     };
+
+        //     const bnpLogo = toAbsUrl(data.bnp_logo);
+        //     const jamLogo = toAbsUrl(data.jamaat_logo);
+        //     const othLogo = toAbsUrl(data.others_logo);
+
+        //     const bnpImg = document.getElementById("logoBnp");
+        //     const jamImg = document.getElementById("logoJamaat");
+        //     const othImg = document.getElementById("logoOthers");
+
+        //     // ✅ Set src + show/hide safely
+        //     bnpImg.src = bnpLogo;
+        //     jamImg.src = jamLogo;
+        //     othImg.src = othLogo;
+
+        //     bnpImg.style.display = bnpLogo ? "block" : "none";
+        //     jamImg.style.display = jamLogo ? "block" : "none";
+        //     othImg.style.display = othLogo ? "block" : "none";
+
+        //     // ✅ If image fails to load, hide it (prevents alt text)
+        //     bnpImg.onerror = () => (bnpImg.style.display = "none");
+        //     jamImg.onerror = () => (jamImg.style.display = "none");
+        //     othImg.onerror = () => (othImg.style.display = "none");
+
+        //     document.getElementById("location").textContent = data.location || "ঢাকা";
+        //     document.getElementById("tickerText").textContent = data.ticker || "";
+        //     document.getElementById("status").textContent = "ডেটা আপডেটেড";
+
+        //     // initial bootstrap (first fetch)
+        //     const incoming = {
+        //       bnp: Number(data.bnp || 0),
+        //       jamaat: Number(data.jamaat || 0),
+        //       others: Number(data.others || 0),
+        //     };
+
+        //     // If first time, set base immediately so wiggle starts nicely
+        //     if (
+        //       state.real.bnp === 0 && state.real.jamaat === 0 && state.real.others === 0 &&
+        //       state.base.bnp === 0 && state.base.jamaat === 0 && state.base.others === 0
+        //     ) {
+        //       state.real = { ...incoming };
+        //       state.base = { ...incoming };
+        //       state.shown = { ...incoming };
+
+        //       document.getElementById("scoreBnp").textContent = fmt(incoming.bnp);
+        //       document.getElementById("scoreJamaat").textContent = fmt(incoming.jamaat);
+        //       document.getElementById("scoreOthers").textContent = fmt(incoming.others);
+        //     } else {
+        //       // normal update
+        //       applyRealUpdate(incoming);
+        //     }
+        //   } catch (e) {
+        //     document.getElementById("status").textContent = "সংযোগ সমস্যা";
+        //   }
+        // }
+
+
+        //         // start everything
+        //         fetchScores();
+        //         setInterval(fetchScores, 2000);
+        //         startContinuousWiggle();
+
+
+
+
+        // function toAbsUrl(u) {
+        //     if (!u) return "";
+
+        //     // If already absolute
+        //     if (/^https?:\/\//i.test(u)) return u;
+
+        //     // If starts with "/" -> "/media/.."
+        //     if (u.startsWith("/")) return window.location.origin + u;
+
+        //     // If "media/.." (no leading slash)
+        //     return window.location.origin + "/" + u;
+        // }
+
+        function toAbsUrl(u) {
+            if (!u) return "";
+
+            // remove spaces
+            u = String(u).trim();
+
+            // if Windows path or backslashes, convert to web path
+            u = u.replaceAll("\\", "/");
+
+            // if full url already
+            if (/^https?:\/\//i.test(u)) return u;
+
+            // if it contains "/media/" somewhere, cut before media
+            const idx = u.indexOf("/media/");
+            if (idx !== -1) u = u.slice(idx);
+
+            // ensure leading slash
+            if (!u.startsWith("/")) u = "/" + u;
+
+            return window.location.origin + u;
+        }
+
+
+        // function setLogo(imgEl, rawUrl) {
+        //     const url = toAbsUrl(rawUrl);
+
+        //     // hide if empty
+        //     if (!url) {
+        //         imgEl.style.display = "none";
+        //         return;
+        //     }
+
+        //     // cache-bust (important when url changes or old 404 is cached)
+        //     const busted = url + (url.includes("?") ? "&" : "?") + "v=" + Date.now();
+
+        //     // only update if changed (prevents flicker every 2s)
+        //     const current = imgEl.getAttribute("data-src") || "";
+        //     if (current === url) {
+        //         // already set, ensure visible
+        //         imgEl.style.display = "block";
+        //         return;
+        //     }
+
+        //     // setup handlers before setting src
+        //     imgEl.onerror = () => {
+        //         imgEl.style.display = "none";
+        //     };
+
+        //     imgEl.onload = () => {
+        //         imgEl.style.display = "block";
+        //     };
+
+        //     imgEl.setAttribute("data-src", url);
+        //     imgEl.src = busted;
+        // }
+
+        // function setLogo(imgEl, rawUrl) {
+        //     const url = toAbsUrl(rawUrl);
+
+        //     imgEl.style.display = "block"; // always keep frame visible
+
+        //     if (!url) {
+        //         imgEl.removeAttribute("src");
+        //         return;
+        //     }
+
+        //     const busted = url + (url.includes("?") ? "&" : "?") + "v=" + Date.now();
+
+        //     imgEl.onerror = () => {
+        //         imgEl.removeAttribute("src"); // keep frame but remove broken image icon
+        //     };
+
+        //     imgEl.src = busted;
+        // }
+
+
+        // async function fetchScores() {
+        //     try {
+        //         const res = await fetch(API_URL, { cache: "no-store" });
+        //         if (!res.ok) throw new Error("Fetch failed");
+        //         const data = await res.json();
+
+        //         // ✅ STATUS LOGO from admin (API must return data.channel_logo)
+        //         setStatusLogo(data.channel_logo || FALLBACK_STATUS_LOGO);
+
+        //         // ✅ LOGOS (fix)
+        //         const bnpImg = document.getElementById("logoBnp");
+        //         const jamImg = document.getElementById("logoJamaat");
+        //         const othImg = document.getElementById("logoOthers");
+
+        //         setLogo(bnpImg, data.bnp_logo);
+        //         setLogo(jamImg, data.jamaat_logo);
+        //         setLogo(othImg, data.others_logo);
+
+        //         // other UI
+        //         document.getElementById("location").textContent = data.location || "ঢাকা";
+        //         document.getElementById("tickerText").textContent = data.ticker || "";
+        //         document.getElementById("status").textContent = "ডেটা আপডেটেড";
+
+        //         const incoming = {
+        //             bnp: Number(data.bnp || 0),
+        //             jamaat: Number(data.jamaat || 0),
+        //             others: Number(data.others || 0),
+        //         };
+
+        //         // initial bootstrap
+        //         if (
+        //             state.real.bnp === 0 && state.real.jamaat === 0 && state.real.others === 0 &&
+        //             state.base.bnp === 0 && state.base.jamaat === 0 && state.base.others === 0
+        //         ) {
+        //             state.real = { ...incoming };
+        //             state.base = { ...incoming };
+        //             state.shown = { ...incoming };
+
+        //             document.getElementById("scoreBnp").textContent = fmt(incoming.bnp);
+        //             document.getElementById("scoreJamaat").textContent = fmt(incoming.jamaat);
+        //             document.getElementById("scoreOthers").textContent = fmt(incoming.others);
+        //         } else {
+        //             applyRealUpdate(incoming);
+        //         }
+
+        //     } catch (e) {
+        //         document.getElementById("status").textContent = "সংযোগ সমস্যা";
+        //     }
+        // }
+
+
+        // ✅ fallback status logo (static path দিন)
+const FALLBACK_STATUS_LOGO = "/static/img/channel_logo.png";
+
+// ✅ status logo show/hide
+// function setStatusLogo(rawUrl){
+//   const el = document.getElementById("statusLogo");
+//   if(!el) return;
+
+//   const url = toAbsUrl(rawUrl);
+//   if(!url){
+//     el.style.display = "none";
+//     return;
+//   }
+
+//   const current = el.getAttribute("data-src") || "";
+//   if(current === url){
+//     el.style.display = "block";
+//     return;
+//   }
+
+//   el.onload = () => (el.style.display = "block");
+//   el.onerror = () => (el.style.display = "none");
+
+//   el.setAttribute("data-src", url);
+//   el.src = url; // no bust needed for status, optional
+// }
+
+
+function setStatusLogo(rawUrl){
+  const el = document.getElementById("statusLogo");
+  if(!el) return;
+
+  const url = toAbsUrl(rawUrl) || toAbsUrl(FALLBACK_STATUS_LOGO);
+  if(!url) return;
+
+  const current = el.getAttribute("data-src") || "";
+  if(current === url) return; // ✅ prevent flicker
+
+  el.classList.add("isLoading");
+
+  el.onload = () => {
+    el.classList.remove("isLoading");
+    el.classList.remove("isError");
+    el.setAttribute("data-src", url);
+  };
+
+  el.onerror = () => {
+    el.classList.remove("isLoading");
+    el.classList.add("isError");
+    // fallback once
+    if(url !== toAbsUrl(FALLBACK_STATUS_LOGO)){
+      el.src = toAbsUrl(FALLBACK_STATUS_LOGO);
+      el.setAttribute("data-src", toAbsUrl(FALLBACK_STATUS_LOGO));
+    }
+  };
+
+  el.src = url;
+}
+
+
+// ✅ party logo (show frame always; show image only if loaded)
+// 
+
+function setLogo(imgEl, rawUrl, fallbackUrl="") {
+  if (!imgEl) return;
+
+  const url = toAbsUrl(rawUrl);
+  const fallback = toAbsUrl(fallbackUrl);
+
+  // keep space always
+  imgEl.style.display = "block";
+  imgEl.style.visibility = "visible";
+
+  // if empty, show fallback (or keep current)
+  const finalUrl = url || fallback;
+  if (!finalUrl) return;
+
+  const current = imgEl.getAttribute("data-src") || "";
+  if (current === finalUrl) return; // ✅ no re-fetch, no flicker
+
+  imgEl.classList.add("isLoading");
+
+  imgEl.onload = () => {
+    imgEl.classList.remove("isLoading");
+    imgEl.classList.remove("isError");
+    imgEl.setAttribute("data-src", finalUrl);
+  };
+
+  imgEl.onerror = () => {
+    imgEl.classList.remove("isLoading");
+    imgEl.classList.add("isError");
+
+    // if already tried fallback, don't loop
+    if (finalUrl !== fallback && fallback) {
+      imgEl.src = fallback;
+      imgEl.setAttribute("data-src", fallback);
+      return;
+    }
+
+    // keep last good image if exists (do not vanish)
+    const lastGood = imgEl.getAttribute("data-last-good");
+    if (lastGood) imgEl.src = lastGood;
+  };
+
+  // store last good before changing
+  const lastGoodNow = imgEl.getAttribute("data-src");
+  if (lastGoodNow) imgEl.setAttribute("data-last-good", lastGoodNow);
+
+  imgEl.src = finalUrl;
+}
+
+
+
+        async function fetchScores() {
+  const statusText = document.getElementById("statusText");
+
+  try {
+    const res = await fetch(API_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error("Fetch failed");
+    const data = await res.json();
+
+    // ✅ status logo from API (admin)
+    setStatusLogo(data.channel_logo || FALLBACK_STATUS_LOGO);
+
+    // ✅ party logos
+    setLogo(document.getElementById("logoBnp"), data.bnp_logo);
+    setLogo(document.getElementById("logoJamaat"), data.jamaat_logo);
+    setLogo(document.getElementById("logoOthers"), data.others_logo);
+
+    // other UI
+    document.getElementById("location").textContent = data.location || "ঢাকা";
+    document.getElementById("tickerText").textContent = data.ticker || "";
+
+    if (statusText) statusText.textContent = "ডেটা আপডেটেড";
+
+    const incoming = {
+      bnp: Number(data.bnp || 0),
+      jamaat: Number(data.jamaat || 0),
+      others: Number(data.others || 0),
+    };
+
+    // initial bootstrap
+    if (
+      state.real.bnp === 0 && state.real.jamaat === 0 && state.real.others === 0 &&
+      state.base.bnp === 0 && state.base.jamaat === 0 && state.base.others === 0
+    ) {
+      state.real = { ...incoming };
+      state.base = { ...incoming };
+      state.shown = { ...incoming };
+
+      document.getElementById("scoreBnp").textContent = fmt(incoming.bnp);
+      document.getElementById("scoreJamaat").textContent = fmt(incoming.jamaat);
+      document.getElementById("scoreOthers").textContent = fmt(incoming.others);
+    } else {
+      applyRealUpdate(incoming);
+    }
+
+  } catch (e) {
+    // ✅ show fallback status logo + message
+    setStatusLogo(FALLBACK_STATUS_LOGO);
+    if (statusText) statusText.textContent = "সংযোগ সমস্যা";
+  }
+}
+
+
+        // start everything
+        fetchScores();
+        setInterval(fetchScores, 2000);
+        startContinuousWiggle();
+
+        // -------- Tilt effect --------
+        document.querySelectorAll("[data-tilt]").forEach(card => {
+            card.addEventListener("mousemove", (e) => {
+                const r = card.getBoundingClientRect();
+                const x = (e.clientX - r.left) / r.width - .5;
+                const y = (e.clientY - r.top) / r.height - .5;
+                card.style.transform =
+                    `translateY(-3px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg)`;
+            });
+            card.addEventListener("mouseleave", () => {
+                card.style.transform = "";
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

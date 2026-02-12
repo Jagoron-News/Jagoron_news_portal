@@ -12,6 +12,9 @@ urlpatterns = [
     path('authors/<slug:slug>/', views.author_detail, name="author_detail"),
     path('topic/<str:tag_name>/', views.topic_news_page, name='topic_news_page'),
 
+    path("election/scoreboard/", views.election_scoreboard_page, name="election_scoreboard"),
+    path("api/election/scoreboard/", views.election_scoreboard_api, name="election_scoreboard_api"),
+
     path('ajax/get-subsections/', views.get_subsections, name='get_subsections'),
     path('news/detail/<int:news_id>/', views.news_detail_redirect, name='news_detail_old'),
     path('news/react/<int:news_id>/', views.react_to_news, name='react_to_news'),

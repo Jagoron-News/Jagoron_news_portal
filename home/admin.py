@@ -380,3 +380,11 @@ class ElectionScoreboardAdmin(admin.ModelAdmin):
             'fields': ('party3_name', 'party3_logo', 'party3_score'),
         }),
     )
+
+
+@admin.register(ElectionLiveScore)
+class ElectionLiveScoreAdmin(admin.ModelAdmin):
+    list_display = ("location", "bnp", "jamaat", "others", "updated_at")
+    fields = ("location","bnp","jamaat","others","ticker",
+              "channel_logo","bnp_logo","jamaat_logo","others_logo")
+    search_fields = ("location",)

@@ -1419,3 +1419,43 @@ def about_us(request):
     return render(request, "pages/about.html", {})
 
 
+def election_scoreboard_page(request):
+    # standalone page template (not using base.html)
+    return render(request, "pages/election_scoreboard.html")
+
+
+def election_scoreboard_api(request):
+    obj = ElectionLiveScore.objects.order_by("-updated_at").first()
+
+    if not obj:
+        return JsonResponse({
+            "location": "ঢাকা",
+            "bnp": 0,
+            "jamaat": 0,
+            "others": 0,
+            "channel_logo": "",
+            "bnp_logo": "", "jamaat_logo": "", "others_logo": "",
+            "ticker": "ডেটা নেই •",
+            "updated_at": None
+        })
+    
+    def file_url(f):
+        try:
+            return f.url if f else ""
+        except Exception:
+            return ""
+
+    return JsonResponse({
+        "location": obj.location,
+        "bnp": obj.bnp,
+        "jamaat": obj.jamaat,
+        "others": obj.others,
+        # ✅ add these (MOST IMPORTANT)
+        "channel_logo": file_url(getattr(obj, "channel_logo", None)),
+        "bnp_logo": file_url(getattr(obj, "bnp_logo", None)),
+        "jamaat_logo": file_url(getattr(obj, "jamaat_logo", None)),
+        "others_logo": file_url(getattr(obj, "others_logo", None)),
+
+        "ticker": obj.ticker,
+        "updated_at": obj.updated_at.isoformat(),
+    })

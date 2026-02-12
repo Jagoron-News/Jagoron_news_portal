@@ -1067,3 +1067,28 @@ class ElectionScoreboard(models.Model):
         if self.is_active:
             ElectionScoreboard.objects.exclude(pk=self.pk).update(is_active=False)
         super().save(*args, **kwargs)
+
+
+class ElectionLiveScore(models.Model):
+    location = models.CharField(max_length=80, default="ঢাকা")
+    bnp = models.PositiveIntegerField(default=0)
+    jamaat = models.PositiveIntegerField(default=0)
+    others = models.PositiveIntegerField(default=0)
+
+    # ✅ No Pillow needed (FileField)
+    channel_logo = models.ImageField(upload_to="scoreboard/", blank=True, null=True)
+    bnp_logo = models.FileField(upload_to="election_logos/", blank=True, null=True)
+    jamaat_logo = models.FileField(upload_to="election_logos/", blank=True, null=True)
+    others_logo = models.FileField(upload_to="election_logos/", blank=True, null=True)
+
+    ticker = models.TextField(
+        default="সর্বশেষ আপডেট: ভোট গণনা চলছে • কেন্দ্র থেকে কেন্দ্রভিত্তিক ফল আসতে শুরু করেছে • লাইভ স্কোরবোর্ড আপডেট হচ্ছে •"
+    )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Election Live Score"
+        verbose_name_plural = "Election Live Scores"
+
+    def __str__(self):
+        return f"ElectionLiveScore ({self.location})"
